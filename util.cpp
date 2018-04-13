@@ -9,9 +9,10 @@ using namespace std;
 void util::clear(){
     #ifdef WINDOWS
                 system ( "CLS" );
+//               WINDOWS
     #else
                 system ( "clear");
-              //  cout<< "Linux"<<endl;
+//              UNIX
 
     #endif
 }

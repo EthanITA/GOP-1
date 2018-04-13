@@ -9,5 +9,6 @@ int main() {
 
 
       util::clear();
+      cout<< "AFTER CLEAR" << endl;
     return 0;
 }
