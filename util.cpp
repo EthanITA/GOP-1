@@ -3,6 +3,8 @@
 //
 
 #include <iostream>
+#include <cstdlib>
+
 #include "util.h"
 using namespace std;
 
