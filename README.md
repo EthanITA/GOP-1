@@ -1,5 +1,5 @@
 # Game of the Goose (Gioco dell'Oca Pazza)
-2018 UniBo Computer Science - Programmig 
+2018 UniBo Computer Science - Programming 
 ## HOW TO
 **LINUX**
 
