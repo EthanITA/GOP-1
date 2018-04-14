@@ -9,6 +9,7 @@
 class util {
     public:
         static void clear();
+        static int Random(int, int);
 };
 
 
