@@ -8,7 +8,7 @@
 #include "util.h"
 using namespace std;
 
-void util::clear(){
+void clear(){
     #ifndef WINDOWS
     system ( "clear");
 //              UNIX
@@ -19,6 +19,6 @@ void util::clear(){
     #endif
 }
 
-int util::Random (int min, int max){
+int Random (int min, int max){
     return rand() % max + min;
 }
