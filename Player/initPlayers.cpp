@@ -25,11 +25,12 @@ initPlayers ::initPlayers(){
 
 	}
 	numPlayers numPlayers(a);
-	player p[a];
+	player p[a];// giocatore [1], giocatore [2]...
 
 	for (int i = 0; i < numPlayers.getNumPlayers_num_(); ++i) {
 		cin >> aa;
 		p[i] = player(aa, i+1);
+		//giocatore [i] <- a=nickname, i+1 = turno
 	}
 }
 
