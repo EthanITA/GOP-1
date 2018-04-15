@@ -6,11 +6,9 @@
 #define GOP_UTIL_H
 
 
-class util {
-    public:
-        static void clear();
-        static int Random(int, int);
-};
+void clear();
+int Random(int, int);
+
 
 
 #endif //GOP_UTIL_H

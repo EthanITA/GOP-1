@@ -9,16 +9,16 @@
 using namespace std;
 
 void clear(){
-    #ifndef WINDOWS
-    system ( "clear");
+#ifndef WINDOWS
+	system ( "clear");
 //              UNIX
 #else
-    system ( "CLS" );
+	system ( "CLS" );
 //               WINDOWS
 
-    #endif
+#endif
 }
 
 int Random (int min, int max){
-    return rand() % max + min;
+	return rand() % max + min;
 }
