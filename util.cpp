@@ -8,17 +8,25 @@
 #include "util.h"
 using namespace std;
 
-void clear(){
-    #ifndef WINDOWS
-    system ( "clear");
-//              UNIX
-#else
-    system ( "CLS" );
-//               WINDOWS
+/*If compiling for the windows environment uncomment the line  "#define WINDOWS"
+ * and comment the line "#define UNIX", and the other way around for the UNIX based environment
+ * */
+#define UNIX
+//#define WINDOWS
 
+void util::clear(){
+    #ifdef WINDOWS
+        system ( "CLS" ); //WINDOWS
+    #elif defined(UNIX)
+        system ( "clear"); //UNIX
     #endif
 }
 
-int Random (int min, int max){
-    return rand() % max + min;
+int util::random(int min, int max) {
+    int number;
+    number=rand() % max+min;
+    return number;
 }
+
+
+

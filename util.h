@@ -6,9 +6,11 @@
 #define GOP_UTIL_H
 
 
-static void clear();
-int Random(int, int);
+class util {
+    public:
+        static void clear();
+         int random(int min, int max);
+};
 
 
 #endif //GOP_UTIL_H
-

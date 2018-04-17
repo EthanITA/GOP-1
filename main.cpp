@@ -7,10 +7,16 @@
 using namespace std;
 
 int main() {
-    cout << "Hello, World!" << endl;
+    int numeroRand;
+
+    cout<< "cose " <<endl;
+    util::clear();
+    util *u = new util;
+
+    numeroRand=u->random(12,3);
+    cout<< "Cose "<< numeroRand << endl;
 
 
-      util::clear();
-      cout<< "AFTER CLEAR" << endl;
     return 0;
+
 }
