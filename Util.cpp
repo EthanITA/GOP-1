@@ -6,7 +6,7 @@
 #include <cstdlib>
 #include <limits>
 
-#include "util.h"
+#include "Util.h"
 using namespace std;
 
 /*If compiling for the windows environment uncomment the line  "#define WINDOWS"

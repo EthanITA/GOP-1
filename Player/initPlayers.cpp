@@ -5,7 +5,7 @@
 #include <iostream>
 #include "cstring"
 #include "initPlayers.h"
-#include "../util.h"
+#include "../Util.h"
 
 using namespace std;
 
