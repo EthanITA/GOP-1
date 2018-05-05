@@ -8,7 +8,7 @@
 
 numPlayers::numPlayers(int numPlayers_num_){
 
-	//set number player through constructor
+
 	numPlayers::numPlayers_num_ = numPlayers_num_;
 }
 

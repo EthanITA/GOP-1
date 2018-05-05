@@ -3,25 +3,23 @@
 //
 
 #include "player.h"
-#include "numPlayers.h"
 
-player::player(std::string nickname, int turn){
-	setNickname(nickname);
-	setTurn(turn);
+
+player::player(){}
+player::player(std::string name, int turn){
+	turn_ [name]= turn;
+	player_ [turn] = name;
+	player_square_[name] = 0;
 }
 
-void player::setNickname(const std::string nickname) {
-	player::nickname_ = nickname;
+int player::getTurn_(std::string Name)  {
+    return turn_[Name];
 }
 
-void player::setTurn(int turn) {
-	player::turn_ = turn;
+std::string player::player_Get(int Turn) {
+    return player_[Turn];
 }
 
-const std::string &player::getNickname_() const {
-	return nickname_;
-}
-
-int player::getTurn_() const {
-	return turn_;
+int player::player_square_Get(std::string Name) {
+    return player_square_[Name];
 }

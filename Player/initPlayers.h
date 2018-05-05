@@ -10,9 +10,12 @@
 class initPlayers {
 public:
 	initPlayers();
-
+//	player getPlayer(int n);
+//	player p[4];
 private:
+    int inputNumber();
 	void welcome();
+    std::string inputName(int);
 };
 
 
