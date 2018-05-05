@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <limits>
 
 #include "util.h"
 using namespace std;
@@ -31,6 +32,17 @@ int util::random(int min, int max) {
     return number;
 }
 
+void util::cinClear(){
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+}
 
-
-
+string util::inputCheck(std::string tmp){
+	if (tmp == "Y" || tmp == "y" || tmp == "si" || tmp == "SI" || tmp == "Si" || tmp == "s" || tmp == "S" || tmp == "Ok" || tmp == "ok" || tmp =="OK"){
+		return "affermative";
+	}
+	else if (tmp == "N" || tmp == "n" || tmp == "no" || tmp == "NO" || tmp == "No"){
+		return "negative";
+	}
+	else return " ";
+}
