@@ -4,13 +4,10 @@
 
 #ifndef GOP_UTIL_H
 #define GOP_UTIL_H
-
-
 class util {
-    public:
-        static void clear();
-         int random(int min, int max);
+public:
+    void clear();
+    int random(int min, int max);
 };
-
 
 #endif //GOP_UTIL_H

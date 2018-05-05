@@ -14,19 +14,23 @@ using namespace std;
 #define UNIX
 //#define WINDOWS
 
+
+
 void util::clear(){
     #ifdef WINDOWS
-        system ( "CLS" ); //WINDOWS
+            system ( "CLS" ); //WINDOWS
     #elif defined(UNIX)
-        system ( "clear"); //UNIX
+            system("clear"); //UNIX
     #endif
 }
 
+
 int util::random(int min, int max) {
     int number;
-    number=rand() % max+min;
+    number = rand() % max + min;
     return number;
 }
+
 
 
 

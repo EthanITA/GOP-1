@@ -3,4 +3,4 @@ project(GOP)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(GOP main.cpp util.cpp util.h)
+add_executable(GOP main.cpp util.cpp util.h Deck/Card.cpp Deck/Card.h Deck/Effects.cpp Deck/Effects.h)

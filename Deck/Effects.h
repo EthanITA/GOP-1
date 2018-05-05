@@ -6,11 +6,12 @@
 #define GOP_EFFECTS_H
 
 
-
 class Effects {
+private:
+   int csoe;
+
 
 };
-
 
 
 #endif //GOP_EFFECTS_H

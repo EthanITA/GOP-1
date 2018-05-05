@@ -2,7 +2,7 @@
 // Created by vecr on 05/05/18.
 //
 
-#include "card.h"
+#include "Card.h"
 
 card::card(int number, char* code){
     this->number=number;
