@@ -5,11 +5,18 @@
 #ifndef GOP_EFFECTS_H
 #define GOP_EFFECTS_H
 
+#include <string>
+#include <vector>
+
+using namespace std;
 
 class Effects {
 private:
-   int csoe;
-
+   vector <string> effects;
+   vector <string> actions;
+public:
+   string getEffects(string code);
+   void effectsInteraction();
 
 };
 

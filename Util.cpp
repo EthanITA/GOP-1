@@ -37,7 +37,7 @@ void util::cinClear(){
     cin.ignore(numeric_limits<streamsize>::max(),'\n');
 }
 
-string util::inputCheck(std::string tmp){
+string util::inputCheck(string tmp){
 	if (tmp == "Y" || tmp == "y" || tmp == "si" || tmp == "SI" || tmp == "Si" || tmp == "s" || tmp == "S" || tmp == "Ok" || tmp == "ok" || tmp =="OK"){
 		return "affermative";
 	}
