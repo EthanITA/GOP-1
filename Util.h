@@ -6,15 +6,17 @@
 #define GOP_UTIL_H
 
 #include <string>
-using namespace std;
 
 
-class util {
+class Util {
 public:
-    void clear();
-    int random(int min, int max);
+    static void clear();
+    static int random(int min, int max);
     void cinClear();
-    string inputCheck(string);
+    std::string inputCheck(std::string);
+    static int randomFrom0(int max);
+    static int randomFrom1(int max);
+
 };
 
 #endif //GOP_UTIL_H

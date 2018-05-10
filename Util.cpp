@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <limits>
+#include <random>
 
 #include "Util.h"
 using namespace std;
@@ -17,7 +18,7 @@ using namespace std;
 
 
 
-void util::clear(){
+void Util::clear(){
     #ifdef WINDOWS
             system ( "CLS" ); //WINDOWS
     #elif defined(UNIX)
@@ -25,19 +26,21 @@ void util::clear(){
     #endif
 }
 
+//Using C++ 11 Random function
+int Util::random(int min, int max) {
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_real_distribution<double > dist((double)min,(double)max);
+    return (int)dist(mt);
 
-int util::random(int min, int max) {
-    int number;
-    number = rand() % max + min;
-    return number;
 }
 
-void util::cinClear(){
+void Util::cinClear(){
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(),'\n');
 }
 
-string util::inputCheck(string tmp){
+string Util::inputCheck(std::string tmp){
 	if (tmp == "Y" || tmp == "y" || tmp == "si" || tmp == "SI" || tmp == "Si" || tmp == "s" || tmp == "S" || tmp == "Ok" || tmp == "ok" || tmp =="OK"){
 		return "affermative";
 	}
@@ -46,3 +49,14 @@ string util::inputCheck(string tmp){
 	}
 	else return " ";
 }
+
+int Util::randomFrom0(int max){
+    return random(0,max);
+}
+
+
+int Util::randomFrom1(int max){
+    return random(1,max);
+}
+
+
