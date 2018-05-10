@@ -3,21 +3,20 @@
 //
 
 #include "Card.h"
+#include "Effects.h"
 
-card::card(int number, char* code){
+Card::Card(int number, int effectNumber){
     this->number=number;
-    this->code=code;
+    this->effectNumber=effectNumber;
 }
 
 
-int card::getNumber()
-{
+int Card::getNumber() {
     return number;
 }
 
 
-
-char* card::getCode(){
-    return code;
+int Card::getEffectNumber(){
+    return effectNumber;
 }
 

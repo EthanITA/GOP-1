@@ -12,12 +12,17 @@ using namespace std;
 
 class Effects {
 private:
-   vector <string> effects;
-   vector <string> actions;
-public:
-   string getEffects(string code);
-   void effectsInteraction();
+     string effects[20]={
+     "Fai un altro lancio","Fai un altro lancio",
+     "Vai avanti di 1","Vai indietro di 1",
+     "Avanti a seconda di quanto esce sul dado","Indietro a seconda di quanto esce sul dado",
+     "Scambia la posizione con un altro giocatore","Fermo un turno",
+     "Gioco con 1 dado per X turni a seconda di quanto esce sul dado"};
+     //TODO Cercare se c'è un modo migliore di fare questa cosa ^^
 
+public:
+    string getEffects(int code);
+    bool getAction (int code);
 };
 
 

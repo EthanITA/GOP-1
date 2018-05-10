@@ -18,8 +18,9 @@ int main() {
 //	p1.setTurn(3);
 //	cout << p1.getNickname_(), "\t",  p1.getTurn_();
 
-//    Effects e1= Effects();
-//    e1.effectsInteraction();
+    Effects e1= Effects();
+    cout<<"EFFETTI "<<e1.getEffects(1)<<endl;
+    e1.getAction(1);
 
 	return 0;
 }

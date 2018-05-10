@@ -4,15 +4,14 @@
 
 #ifndef GOP_CARD_H
 #define GOP_CARD_H
-class card{
+class Card{
 private:
-    int number;
-    char *code;
+    int number,effectNumber;
 
 public:
-    card(int number, char* code);
+    Card(int number, int effectNumber);
     int getNumber();
-    char* getCode();
+    int getEffectNumber();
 };
 
 #endif //GOP_CARD_H

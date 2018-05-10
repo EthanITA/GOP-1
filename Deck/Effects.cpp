@@ -6,19 +6,25 @@
 #include <iostream>
 #include <algorithm>
 
-//string Effects::getEffect(string code){
-//
-//}
 
-void Effects::effectsInteraction() {
 
-//            CODE - EFFECT
-    effects={"a1","PRIMO EFFETTO CHE FA COSE;"};
-//            CODE - ACTION
-    actions={"a1","COMANDI DA ESEGUIRE"};
-
-    //cose=find(effects.begin(), effects.end(),"a1");
-
-    cout << "Effects [0][0] "<<effects[0][1] << " a " <<endl;
-
+//Given an INT with the code of the instruction returns a string with the effect
+string Effects::getEffects(int code) {
+    return effects[code];
 }
+
+
+bool Effects::getAction(int code){
+    switch (code) {
+        case (1): {
+            cout<<"EFFETTO 1"<<endl;
+            return true;
+        }
+            break;
+        default:{
+            cout<<"ERROR ACTION NOT FOUND!";
+            return false;
+        }
+    }
+}
+
