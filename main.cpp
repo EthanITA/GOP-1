@@ -7,8 +7,8 @@
 #include "Player/initPlayers.h"
 #include "Player/numPlayers.h"
 #include "Deck/Effects.h"
+#include "Deck/Deck.h"
 
-using namespace std;
 
 int main() {
 
@@ -19,8 +19,10 @@ int main() {
 //	cout << p1.getNickname_(), "\t",  p1.getTurn_();
 
     Effects e1= Effects();
-    cout<<"EFFETTI "<<e1.getEffects(1)<<endl;
-    e1.getAction(1);
-
+   // cout<<"EFFETTI "<<e1.getEffects(1)<<endl;
+    Deck d = Deck(5);
+    d.getCard();
+    std::cout<<"Card "<<d.getCard()<<std::endl;
+    std::cout<<"R FROM !" <<Util::randomFrom1(8);
 	return 0;
 }

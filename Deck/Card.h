@@ -9,9 +9,12 @@ private:
     int number,effectNumber;
 
 public:
-    Card(int number, int effectNumber);
+//    Card(int number, int effectNumber);
     int getNumber();
     int getEffectNumber();
+    void setNumber(int number);
+    void setEffectNumber(int effectNumber);
+    void setEverything(int number, int effectNumber);
 };
 
 #endif //GOP_CARD_H

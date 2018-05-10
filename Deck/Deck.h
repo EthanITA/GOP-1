@@ -6,10 +6,18 @@
 #define GOP_DECK_H
 
 
-class Deck {
-public:
-    Deck();
+#include "Card.h"
+#include "../Util.h"
+#include "Effects.h"
+#include <vector>
 
+class Deck {
+private:
+    static std::vector<Card> cards;
+    int noOfEffects;
+public:
+    Deck(int numberOfCards);
+    int getCard();
 };
 
 

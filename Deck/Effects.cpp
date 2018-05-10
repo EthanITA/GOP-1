@@ -4,27 +4,29 @@
 #include "Effects.h"
 #include <string>
 #include <iostream>
-#include <algorithm>
 
 
 
 //Given an INT with the code of the instruction returns a string with the effect
-string Effects::getEffects(int code) {
+std::string Effects::getEffects(int code) {
     return effects[code];
 }
 
 
-bool Effects::getAction(int code){
+bool Effects::executeAction(int code){
     switch (code) {
         case (1): {
-            cout<<"EFFETTO 1"<<endl;
+            std::cout<<"EFFETTO 1"<<std::endl;
             return true;
         }
-            break;
         default:{
-            cout<<"ERROR ACTION NOT FOUND!";
+            std::cout<<"ERROR ACTION NOT FOUND!";
             return false;
         }
     }
 }
 
+
+int Effects::numberOfEffects(){
+    return sizeof( effects ) / sizeof( effects[ 0 ] );
+}
