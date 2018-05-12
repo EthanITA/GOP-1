@@ -5,7 +5,6 @@
 #ifndef GOP_INITPLAYERS_H
 #define GOP_INITPLAYERS_H
 
-#include "numPlayers.h"
 #include "player.h"
 class initPlayers {
 public:
@@ -13,9 +12,10 @@ public:
 //	player getPlayer(int n);
 //	player p[4];
 private:
-    int inputNumber();
+	int checkSameNickname(player, int);
+	int inputNumber();
 	void welcome();
-    std::string inputName(int);
+	std::string inputName(int);
 };
 
 

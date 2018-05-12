@@ -19,11 +19,11 @@ using namespace std;
 
 
 void Util::clear(){
-    #ifdef WINDOWS
-            system ( "CLS" ); //WINDOWS
-    #elif defined(UNIX)
-            system("clear"); //UNIX
-    #endif
+#ifdef WINDOWS
+    system ( "CLS" ); //WINDOWS
+#elif defined(UNIX)
+    system("clear"); //UNIX
+#endif
 }
 
 //Using C++ 11 Random function
@@ -35,19 +35,22 @@ int Util::random(int min, int max) {
 
 }
 
-void Util::cinClear(){
+void cinClear(){
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(),'\n');
 }
 
-string Util::inputCheck(std::string tmp){
-	if (tmp == "Y" || tmp == "y" || tmp == "si" || tmp == "SI" || tmp == "Si" || tmp == "s" || tmp == "S" || tmp == "Ok" || tmp == "ok" || tmp =="OK"){
-		return "affermative";
-	}
-	else if (tmp == "N" || tmp == "n" || tmp == "no" || tmp == "NO" || tmp == "No"){
-		return "negative";
-	}
-	else return " ";
+string inputCheck(std::string tmp){
+    if (tmp == "Y" || tmp == "y" || tmp == "si" || tmp == "SI" || tmp == "Si" || tmp == "s" || tmp == "S" || tmp == "Ok" || tmp == "ok" || tmp =="OK"
+        || tmp == "va" || tmp == "VA"|| tmp == "Va"|| tmp == "CERTO"|| tmp == "certo"|| tmp == "Certo"|| tmp == "tieni"|| tmp == "Tieni"|| tmp == "TIENI"
+        || tmp == "Tenere"|| tmp == "tenere"|| tmp == "TENERE"){
+        return "affermative";
+    }
+    else if (tmp == "N" || tmp == "n" || tmp == "no" || tmp == "NO" || tmp == "No"|| tmp == "cambia"|| tmp == "Cambia"|| tmp == "CAMBIA"
+             || tmp == "cambia"|| tmp == "Cambia"|| tmp == "CAMBIARE"){
+        return "negative";
+    }
+    else return " ";
 }
 
 int Util::randomFrom0(int max){

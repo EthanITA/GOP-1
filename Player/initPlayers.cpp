@@ -9,48 +9,69 @@
 
 using namespace std;
 
+int initPlayers::checkSameNickname(player p, int key){
+    int value = 0;
+    for (int i = 1; i < key; ++i) {
+        if (p.getPlayer_(i) == p.getPlayer_(key))
+            value = i;
+    }
+    return value;
+}
 initPlayers ::initPlayers(){
-	welcome();
-
-	numPlayers numPlayers(inputNumber()); //input players num
-	for (int i = 1; i <= numPlayers.getNumPlayers_num_(); ++i) {
+    welcome();
+    player p(inputNumber()); //input players num
+    for (int i = 1; i <= p.getNum_player_(); ++i) {
         cout << "Nome del giocatore " << i << ": ";
-		auto p = player(inputName(i), i); //LOCAL; input player name + turn -> dictionary
-        clear();
-	}
+        p.setPlayer_(inputName(i), i);
+        int val = checkSameNickname(p, i);
+        while(val != 0){
+            Util::clear();
+            cout << "Il nome '"<< p.getPlayer_(i)<<"' è identico a quello del giocatore " <<val<<", inseriscine un altro: ";
+            p.setPlayer_(inputName(i), i);
+            val = checkSameNickname(p, i);
+        }
+        p.setSquare_(p.getPlayer_(i), 0);
+        p.setTurn_(p.getPlayer_(i), i);
+        Util::clear();
+    }
 
 }
 
 void initPlayers::welcome() {
 
-	//todo
-	cout << "" << endl;
+    //todo
+    cout << "" << endl;
 
 }
 
 std::string initPlayers::inputName(int i){
-    string name;
-    string tmp;
+    string name, tmp;
     cin >> name;
     if(name.length() > 10){
         name.resize(10);
+        Util::clear();
         cout << "Per un'esperienza di gioco migliore, massimo fino a 10 caratteri."<<endl;
 
         retry:
-        cout << "Tenere '" << name << "'?";
+        cout << "Tenere '" << name << "'? ";
         cin >> tmp;
         auto input = inputCheck(tmp); // auto type of variable
         if(input == "affermative"){
 
+            Util::clear();
         }
         else if (input == "negative"){
-            clear();
+            cinClear();
+            Util::clear();
             cout << "Inserire nuovamente il nome del giocatore " << i << ": ";
             name = inputName(i);
         }
-        else
-            goto retry;
+        else{
+            Util::clear();
+            cinClear();
+            goto retry;}
     }
+    cinClear();
     return name;
 }
 
@@ -62,15 +83,16 @@ int initPlayers::inputNumber(){
         cin>>num;
         // [1, 4]
         if (num<=4 && num>=1){
-                flag = false;
+            flag = false;
         }
         else if (cin.fail()){
             cinClear();
             cout << "Solo numeri interi! ";
         }
-        else
-            cout << "Numeri da 1 a 4! ";
-        clear();
+        else{
+            cinClear();
+            cout << "Numeri da 1 a 4! ";}
+        Util::clear();
     }
     return num;
 }

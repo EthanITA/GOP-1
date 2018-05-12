@@ -1,6 +1,23 @@
-cmake_minimum_required(VERSION 3.05)
+cmake_minimum_required(VERSION 3.9)
 project(GOP)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 
-add_executable(GOP main.cpp Util.cpp Util.h Deck/Card.cpp Deck/Card.h Deck/Effects.cpp Deck/Effects.h Deck/Deck.cpp Deck/Deck.h)
+add_executable(GOP
+        Deck/Card.cpp
+        Deck/Card.h
+        Deck/Deck.cpp
+        Deck/Deck.h
+        Deck/Effects.cpp
+        Deck/Effects.h
+        Dice/dice.cpp
+        Dice/dice.h
+        Player/initPlayers.cpp
+        Player/initPlayers.h
+        Player/numPlayers.cpp
+        Player/numPlayers.h
+        Player/player.cpp
+        Player/player.h
+        main.cpp
+        Util.cpp
+        Util.h)
