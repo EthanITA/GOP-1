@@ -6,6 +6,7 @@
 #define GOP_PLAYER_H
 
 #include <map>
+#include <vector>
 #include "string"
 
 
@@ -14,20 +15,18 @@ public:
 
     explicit player(int);
 
-    std::string getPlayer_(int Turn);
-    int getPlayer_square_(std::string Name);
-
-    int getTurn_(std::string Name) ;
-
-    void setSquare_(std::string name, int square);
-    void setPlayer_(std::string name, int);
-    void setTurn_(std::string name, int);
+    std::string getName_(int Turn);
+    int getSquare_(int Turn);
+    void setPlayer_(int Turn, std::string Name);
+    void setSquare_t(int Turn, int Square);
+    void setSquare_n(std::string Name, int Square);
     int getNum_player_();
 private:
-    //dictionary: "map <key, value> variable"
-    std::map<std::string,int> turn_; //player turn
-    std::map<int, std::string> player_;//player name
-    std::map<std::string, int> square_ ; //player's square
+    struct type{
+        std::string name_;
+        int square_;
+    };
+    std::map<int,type> player_;
     int num_Player_ ;
 };
 

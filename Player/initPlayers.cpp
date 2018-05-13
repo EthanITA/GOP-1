@@ -12,7 +12,7 @@ using namespace std;
 int initPlayers::checkSameNickname(player p, int key){
     int value = 0;
     for (int i = 1; i < key; ++i) {
-        if (p.getPlayer_(i) == p.getPlayer_(key))
+        if (p.getName_(i) == p.getName_(key))
             value = i;
     }
     return value;
@@ -22,16 +22,15 @@ initPlayers ::initPlayers(){
     player p(inputNumber()); //input players num
     for (int i = 1; i <= p.getNum_player_(); ++i) {
         cout << "Nome del giocatore " << i << ": ";
-        p.setPlayer_(inputName(i), i);
+        p.setPlayer_(i, inputName(i));
         int val = checkSameNickname(p, i);
         while(val != 0){
             Util::clear();
-            cout << "Il nome '"<< p.getPlayer_(i)<<"' è identico a quello del giocatore " <<val<<", inseriscine un altro: ";
-            p.setPlayer_(inputName(i), i);
+            cout << "Il nome '"<< p.getName_(i)<<"' è identico a quello del giocatore " <<val<<", inseriscine un altro: ";
+            p.setPlayer_(i,inputName(i));
             val = checkSameNickname(p, i);
         }
-        p.setSquare_(p.getPlayer_(i), 0);
-        p.setTurn_(p.getPlayer_(i), i);
+        p.setSquare_n(p.getName_(i), 0);
         Util::clear();
     }
 

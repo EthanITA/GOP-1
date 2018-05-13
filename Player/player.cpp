@@ -8,25 +8,27 @@
 player::player(int n){
     num_Player_ = n;
 }
-void player::setTurn_(std::string name, int turn){
-    turn_ [name]= turn;
+void player::setPlayer_(int i, std::string name){
+    player_ [i] = {name, 0};
 }
-void player::setPlayer_(std::string name, int i){
-    player_ [i] = name;
+void player::setSquare_n(std::string Name, int Square) {
+    bool flag = true;
+    for (int i = 1; i <= num_Player_ && flag; ++i) {
+        if (player_[i].name_ == Name){
+            flag = false;
+            player_[i].square_ = Square;
+        }
+    }
 }
-void player::setSquare_(std::string name, int square){
-    square_[name] = square;
-}
-int player::getTurn_(std::string Name)  {
-    return turn_[Name];
+void player::setSquare_t(int turn, int square) {
+    player_[turn].square_ = square;
 }
 
-std::string player::getPlayer_(int Turn) {
-    return player_[Turn];
+std::string player::getName_(int Turn) {
+    return player_[Turn].name_;
 }
-
-int player::getPlayer_square_(std::string Name) {
-    return square_[Name];
+int player::getSquare_(int Turn){
+    return player_[Turn].square_;
 }
 int player::getNum_player_(){
     return num_Player_;

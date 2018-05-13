@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.05)
 project(GOP)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -14,8 +14,6 @@ add_executable(GOP
         Dice/dice.h
         Player/initPlayers.cpp
         Player/initPlayers.h
-        Player/numPlayers.cpp
-        Player/numPlayers.h
         Player/player.cpp
         Player/player.h
         main.cpp
