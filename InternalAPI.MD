@@ -9,3 +9,5 @@ Poi per pescare una carta
 `d1.getCard();` 
 
 Restitusice un `int` 
+
+Utile per fare pescare una carta al giocatore.

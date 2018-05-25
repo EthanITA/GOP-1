@@ -8,20 +8,22 @@
 
 
 //Given an INT with the code of the instruction returns a string with the effect
-std::string Effects::getEffects(int code) {
-    return effects[code];
+std::string Effects::getEffects(int efffectNumber) {
+    return effects[efffectNumber];
 }
 
 
-bool Effects::executeAction(int code){
-    switch (code) {
+void Effects::executeAction(int effectNumber){
+    //TODO Implementaione degli effetti dopo che si è implementata la mappa
+    switch (effectNumber) {
         case (1): {
             std::cout<<"EFFETTO 1"<<std::endl;
-            return true;
+        }
+        case (2): {
+            std::cout<<"EFFETTO 2"<<std::endl;
         }
         default:{
-            std::cout<<"ERROR ACTION NOT FOUND!";
-            return false;
+            std::cout<<"ERROR ACTION NOT FOUND!"<<std::endl;
         }
     }
 }

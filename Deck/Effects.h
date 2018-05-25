@@ -19,8 +19,8 @@ private:
             "Gioco con 1 dado per X turni a seconda di quanto esce sul dado"};
      //TODO Cercare se c'è un modo migliore di fare questa cosa ^^
 public:
-    std::string getEffects(int code);
-    bool executeAction(int code);
+    std::string getEffects(int efffectNumber);
+    static void executeAction(int effectNumber);
     static int numberOfEffects();
 };
 

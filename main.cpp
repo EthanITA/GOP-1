@@ -11,13 +11,14 @@
 
 int main() {
 
-    initPlayers p;
+   // initPlayers p;
 
 //    Effects e1= Effects();
 //   // cout<<"EFFETTI "<<e1.getEffects(1)<<endl;
-//    Deck d = Deck(5);
+    Deck d = Deck(5);
+
 //    d.getCard();
 //    std::cout<<"Card "<<d.getCard()<<std::endl;
 //    std::cout<<"R FROM !" <<Util::randomFrom1(8);
-//	return 0;
+	return 0;
 }
