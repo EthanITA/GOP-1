@@ -12,14 +12,14 @@
 
 class player {
 public:
-
-    explicit player(int);
+    player();
+    player(int Number);
 
     std::string getName_(int Turn);
     int getSquare_(int Turn);
     void setPlayer_(int Turn, std::string Name);
-    void setSquare_t(int Turn, int Square);
-    void setSquare_n(std::string Name, int Square);
+    void setSquare_turn(int Turn, int Square);
+    void setSquare_name(std::string Name, int Square);
     int getNum_player_();
 private:
     struct type{

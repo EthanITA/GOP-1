@@ -4,14 +4,14 @@
 
 #include "player.h"
 
-
+player::player(){}
 player::player(int n){
     num_Player_ = n;
 }
 void player::setPlayer_(int i, std::string name){
-    player_ [i] = {name, 0};
+    player_ [i] = {std::move(name), 0};
 }
-void player::setSquare_n(std::string Name, int Square) {
+void player::setSquare_name(std::string Name, int Square) {
     bool flag = true;
     for (int i = 1; i <= num_Player_ && flag; ++i) {
         if (player_[i].name_ == Name){
@@ -20,7 +20,7 @@ void player::setSquare_n(std::string Name, int Square) {
         }
     }
 }
-void player::setSquare_t(int turn, int square) {
+void player::setSquare_turn(int turn, int square) {
     player_[turn].square_ = square;
 }
 

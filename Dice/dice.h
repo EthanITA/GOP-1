@@ -6,13 +6,22 @@
 #define GOP_DICE_H
 
 
+#include <map>
+#include "../Util.h"
+#include "../Player/player.h"
+#include <vector>
+
 class dice {
 public:
-	explicit dice(int Dice);
+	explicit dice(int n);
 	void setDice(int dice_);
-
+	int throwDice();
 private:
-	int dice_;
+	struct type{
+        int min_;
+        int max_;
+    };
+    type dice_;
 };
 
 

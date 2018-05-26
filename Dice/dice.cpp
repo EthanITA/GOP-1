@@ -4,10 +4,16 @@
 
 #include "dice.h"
 
-dice::dice(int dice){
-	setDice(dice);
+
+dice::dice(int n){
+    dice_.max_= 6*n;
+    dice_.min_=1*n;
 }
 
 void dice::setDice(int dice) {
-	dice_ = dice;
+
+}
+
+int dice::throwDice() {
+    return Util::random(dice_.min_, dice_.max_);
 }

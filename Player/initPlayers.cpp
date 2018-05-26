@@ -15,31 +15,26 @@ int initPlayers::checkSameNickname(player p, int key){
         if (p.getName_(i) == p.getName_(key))
             value = i;
     }
-    return value;
+    return value; }
+
+player initPlayers::returnP_() {
+    return p_;
 }
 initPlayers ::initPlayers(){
-    welcome();
-    player p(inputNumber()); //input players num
-    for (int i = 1; i <= p.getNum_player_(); ++i) {
+    p_ = player(inputNumber()); //input players num
+    for (int i = 1; i <= p_.getNum_player_(); ++i) {
         cout << "Nome del giocatore " << i << ": ";
-        p.setPlayer_(i, inputName(i));
-        int val = checkSameNickname(p, i);
+        p_.setPlayer_(i, inputName(i));
+        int val = checkSameNickname(p_, i);
         while(val != 0){
             Util::clear();
-            cout << "Il nome '"<< p.getName_(i)<<"' è identico a quello del giocatore " <<val<<", inseriscine un altro: ";
-            p.setPlayer_(i,inputName(i));
-            val = checkSameNickname(p, i);
+            cout << "Il nome '"<< p_.getName_(i)<<"' è identico a quello del giocatore " <<val<<", inseriscine un altro: ";
+            p_.setPlayer_(i,inputName(i));
+            val = checkSameNickname(p_, i);
         }
-        p.setSquare_n(p.getName_(i), 0);
+        p_.setSquare_name(p_.getName_(i), 0);
         Util::clear();
     }
-
-}
-
-void initPlayers::welcome() {
-
-    //todo
-    cout << "" << endl;
 
 }
 
