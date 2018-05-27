@@ -28,6 +28,7 @@ void Util::clear(){
 
 //Using C++ 11 Random function
 int Util::random(int min, int max) {
+    max ++;
     std::random_device rd;
     std::mt19937 mt(rd());
     std::uniform_real_distribution<double > dist((double)min,(double)max);

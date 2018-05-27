@@ -13,15 +13,10 @@
 
 class dice {
 public:
-	explicit dice(int n);
-	void setDice(int dice_);
-	int throwDice();
+    int throwDice(int Number);
 private:
-	struct type{
-        int min_;
-        int max_;
-    };
-    type dice_;
+    const int min_ = 1;
+    const int max_ = 6;
 };
 
 

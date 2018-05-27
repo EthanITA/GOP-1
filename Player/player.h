@@ -21,10 +21,16 @@ public:
     void setSquare_turn(int Turn, int Square);
     void setSquare_name(std::string Name, int Square);
     int getNum_player_();
+    int getDice_(int Turn);
+    void switchDice_(int Turn);
+    bool getStop_(int Turn);
+    void switchStop_(int Turn);
 private:
     struct type{
         std::string name_;
-        int square_;
+        int square_ = 0;
+        bool two_dice_ = true;
+        bool stop_ = false;
     };
     std::map<int,type> player_;
     int num_Player_ ;

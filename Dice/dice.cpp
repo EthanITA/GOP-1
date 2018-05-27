@@ -5,15 +5,6 @@
 #include "dice.h"
 
 
-dice::dice(int n){
-    dice_.max_= 6*n;
-    dice_.min_=1*n;
-}
-
-void dice::setDice(int dice) {
-
-}
-
-int dice::throwDice() {
-    return Util::random(dice_.min_, dice_.max_);
+int dice::throwDice(int n) {
+    return Util::random(min_*n, max_*n);
 }
