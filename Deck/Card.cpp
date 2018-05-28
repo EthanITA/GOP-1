@@ -3,7 +3,7 @@
 //
 
 #include "Card.h"
-#include "Effects.h"
+#include "../Utils/Effects.h"
 
 //Card::Card(int number, int effectNumber){
 //    this->number=number;

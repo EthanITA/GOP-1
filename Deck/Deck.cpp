@@ -4,7 +4,7 @@
 
 #include "Deck.h"
 #include <iostream>
-#include "Effects.h"
+#include "../Utils/Effects.h"
 
 std::vector<Card> Deck::cards((unsigned long)Effects::numberOfEffects());
 

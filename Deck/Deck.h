@@ -7,8 +7,8 @@
 
 
 #include "Card.h"
-#include "../Util.h"
-#include "Effects.h"
+#include "../Utils/Util.h"
+#include "../Utils/Effects.h"
 #include <vector>
 
 class Deck {

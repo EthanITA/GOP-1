@@ -1,11 +1,11 @@
 #include <iostream>
 #include <cstdlib>
 
-#include "Util.h"
+#include "Utils/Util.h"
 #include "Deck/Card.h"
 #include "Player/player.h"
 #include "Player/initPlayers.h"
-#include "Deck/Effects.h"
+#include "Utils/Effects.h"
 #include "Deck/Deck.h"
 #include "Dice/dice.h"
 using namespace std;

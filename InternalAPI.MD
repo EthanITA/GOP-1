@@ -10,4 +10,4 @@ Poi per pescare una carta
 
 Restitusice un `int` 
 
-Utile per fare pescare una carta al giocatore.
+Utile per fare pescare una carta al giocatore.  

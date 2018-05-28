@@ -8,8 +8,8 @@ add_executable(GOP
         Deck/Card.h
         Deck/Deck.cpp
         Deck/Deck.h
-        Deck/Effects.cpp
-        Deck/Effects.h
+        Utils/Effects.cpp
+        Utils/Effects.h
         Dice/dice.cpp
         Dice/dice.h
         Player/initPlayers.cpp
@@ -17,5 +17,5 @@ add_executable(GOP
         Player/player.cpp
         Player/player.h
         main.cpp
-        Util.cpp
-        Util.h)
+        Utils/Util.cpp
+        Utils/Util.h Map/Map.cpp Map/Map.h)
