@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <limits>
 #include <random>
+#include <unistd.h>
 
 #include "Util.h"
 using namespace std;
@@ -34,6 +35,11 @@ int Util::random(int min, int max) {
     std::uniform_real_distribution<double > dist((double)min,(double)max);
     return (int)dist(mt);
 
+}
+
+void mSleep (int micro){
+    fflush(stdout);
+    usleep(micro*1000);
 }
 
 void cinClear(){

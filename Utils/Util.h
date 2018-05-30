@@ -19,5 +19,6 @@ public:
 
 void cinClear();
 std::string inputCheck(std::string);
+void mSleep (int microseconds); //pause in microsec.
 #endif //GOP_UTIL_H
 
