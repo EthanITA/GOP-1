@@ -13,7 +13,7 @@
 class player {
 public:
     player();
-    player(int Number);
+    explicit player(int Number);
 
     std::string getName_(int Turn);
     int getSquare_(int Turn);

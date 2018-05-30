@@ -15,8 +15,8 @@ class dice {
 public:
     int throwDice(int Number);
 private:
-    const int min_ = 1;
-    const int max_ = 6;
+    const int kMin_ = 1;
+    const int kMax_ = 6;
 };
 
 

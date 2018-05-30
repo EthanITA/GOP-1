@@ -18,4 +18,4 @@ add_executable(GOP
         Player/player.h
         main.cpp
         Utils/Util.cpp
-        Utils/Util.h Map/Map.cpp Map/Map.h)
+        Utils/Util.h Map/Map.cpp Map/Map.h Game/game.cpp Game/game.h)

@@ -6,5 +6,5 @@
 
 
 int dice::throwDice(int n) {
-    return Util::random(min_*n, max_*n);
+    return Util::random(kMin_*n, kMax_*n);
 }
