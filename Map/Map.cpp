@@ -2,18 +2,36 @@
 // Created by vecr on 26/05/18.
 //
 
+#include <iostream>
+#include <cmath>
 #include "Map.h"
 #include "../Utils/Effects.h"
 #include "../Utils/Util.h"
 
 
-Map::Map(int dimensions) {
-    int i;
-    this->dimensions=dimensions;
-    int map[dimensions][2];
+Map::Map() {
+    //this->dimensions=dimensions;
+    int i, nEffects=Effects::numberOfEffects();
+    int distanceBtwnEffects=13; //~1/3 of dimensions;
+   // int map[dimensions][2];
 
     for(i=0;i<dimensions;i++){
-        map[i][1]=Util::randomFrom1(Effects::numberOfEffects());
+        if(i%distanceBtwnEffects==0) {
+            map[i][1] = +Util::randomFrom1(nEffects);
+        } else{
+            map[i][1]=0;
+        }
     }
 }
 
+void Map::displayMap() {
+    int i,j;
+    for(i=0;i<10;i++){
+        if(i==0){
+            std::cout<<"S - "<<map[i][1]<<"\t"<<i+10<<" - "<<map[i+10][1]<<"\t"<<i+20<<" - "<<map[i+20][1]<<"\t"<<i+30<<" - "<<map[i+30][1]<<std::endl;
+
+        }
+        std::cout<<i<<" - "<<map[i][1]<<"\t"<<i+10<<" - "<<map[i+10][1]<<"\t"<<i+20<<" - "<<map[i+20][1]<<"\t"<<i+30<<" - "<<map[i+30][1]<<std::endl;
+    }
+    std::cout<<"--------- FINE 40 "<<map[3][1]<<"---------"<<std::endl;
+}

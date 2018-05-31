@@ -21,3 +21,4 @@ by
 [@vecr25](https://github.com/vecr25)
 [@EthanITA](https://github.com/EthanITA)
 
+[![forthebadge](https://forthebadge.com/images/badges/gluten-free.svg)](https://forthebadge.com)

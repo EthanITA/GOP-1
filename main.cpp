@@ -10,11 +10,12 @@
 #include "Dice/dice.h"
 #include "Game/game.h"
 
-using namespace std;
 
 int main() {
-    game game;
+    //game game;
 
+    Map m=Map();
+    m.displayMap();
 //    Effects e1= Effects();
 //   // cout<<"EFFETTI "<<e1.getEffects(1)<<endl;
 //    Deck d = Deck(5);

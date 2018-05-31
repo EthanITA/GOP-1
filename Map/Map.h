@@ -10,12 +10,13 @@
 
 class Map {
 private:
-    int dimensions;
-    std::vector map;
+    const int dimensions=41;
+    int map[41][2];
+   // std::vector map;
    // struct mapStruct;
 public:
-    Map(int dimensions);
-
+    Map();
+    void displayMap();
 
 };
 
