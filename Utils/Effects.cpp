@@ -30,5 +30,5 @@ void Effects::executeAction(int effectNumber){
 
 
 int Effects::numberOfEffects(){
-    return sizeof( effects ) / sizeof( effects[ 0 ] );
+    return sizeof( effects ) / sizeof( effects[ 0 ] )-1;
 }

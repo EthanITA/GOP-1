@@ -17,6 +17,7 @@ private:
 public:
     Map();
     void displayMap();
+    int getCellEffect(int cellNumber);
 
 };
 

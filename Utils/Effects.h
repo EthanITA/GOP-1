@@ -11,7 +11,8 @@
 
 class Effects {
 private:
-    std::string effects[8] ={
+    std::string effects[9] ={
+            "NONE",
             "Fai un altro lancio",
             "Vai avanti di 1","Vai indietro di 1",
             "Avanti a seconda di quanto esce sul dado","Indietro a seconda di quanto esce sul dado",

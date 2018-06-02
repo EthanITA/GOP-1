@@ -13,9 +13,17 @@
 
 int main() {
     //game game;
+//    int i;
+//    Effects e = Effects();
+//    Map m=Map();
+//    m.displayMap();
+//    for(i=0;i<41;i++){
+//        std::cout<<i<<"- Get cell effect number "<<m.getCellEffect(i)<<std::endl;
+//        if(m.getCellEffect(i)!=0){
+//           std::cout<<"Effettto: "<<e.getEffects(m.getCellEffect(i))<<std::endl;
+//        }
+//    }
 
-    Map m=Map();
-    m.displayMap();
 //    Effects e1= Effects();
 //   // cout<<"EFFETTI "<<e1.getEffects(1)<<endl;
 //    Deck d = Deck(5);
