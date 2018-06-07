@@ -25,7 +25,7 @@ white        37         47
 /// cout << kRed << .... << kStop << ...
 
 
-struct colors{
+struct Colors{
     const std::string kRed = "\033[1;31m", kGreen = "\033[1;32m", kYellow = "\033[1;33m",
             kBlue = "\033[1;34m", kMagenta = "\033[1;35m", kCyan = "\033[1;36m",
             kWhite = "\033[1;37m", kStop ="\033[0m";

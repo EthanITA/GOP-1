@@ -13,10 +13,12 @@
 
 int main() {
     //game game;
-//    int i;
-//    Effects e = Effects();
-//    Map m=Map();
-//    m.displayMap();
+    int i;
+    Effects e = Effects();
+
+    Map m=Map();
+    m.displayMap();
+
 //    for(i=0;i<41;i++){
 //        std::cout<<i<<"- Get cell effect number "<<m.getCellEffect(i)<<std::endl;
 //        if(m.getCellEffect(i)!=0){

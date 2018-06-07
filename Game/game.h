@@ -8,7 +8,7 @@
 #include "../Dice/dice.h"
 #include "../Player/player.h"
 #include "../Player/initPlayers.h"
-#include "../Utils/colors.h"
+#include "../Utils/Colors.h"
 #include "../Map/Map.h"
 #include "../Deck/Deck.h"
 
@@ -18,7 +18,7 @@ public:
     game();
 private:
     player player_;
-    colors color_;
+    Colors color_;
     dice dice_;
 
     void initClasses();

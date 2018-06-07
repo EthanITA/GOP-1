@@ -10,15 +10,14 @@
 
 class Map {
 private:
-    const int dimensions=41;
     int map[41][2];
    // std::vector map;
    // struct mapStruct;
 public:
+    static const int dimensions=41;
     Map();
     void displayMap();
     int getCellEffect(int cellNumber);
-
 };
 
 
