@@ -10,12 +10,12 @@ add_executable(GOP
         Deck/Deck.h
         Utils/Effects.cpp
         Utils/Effects.h
-        Dice/dice.cpp
-        Dice/dice.h
-        Player/initPlayers.cpp
-        Player/initPlayers.h
-        Player/player.cpp
-        Player/player.h
+        Dice/Dice.cpp
+        Dice/Dice.h
+        Player/InitPlayers.cpp
+        Player/InitPlayers.h
+        Player/Player.cpp
+        Player/Player.h
         main.cpp
         Utils/Util.cpp
-        Utils/Util.h Map/Map.cpp Map/Map.h Game/game.cpp Game/game.h Utils/Colors.h)
+        Utils/Util.h Map/Map.cpp Map/Map.h Game/Game.cpp Game/Game.h Utils/Colors.h)

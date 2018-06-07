@@ -8,12 +8,13 @@
 #include <map>
 #include <vector>
 #include "string"
+#include "../Utils/Colors.h"
 
 
-class player {
+class Player {
 public:
-    player();
-    explicit player(int Number);
+    Player();
+    explicit Player(int Number);
 
     std::string getName_(int Turn);
     int getSquare_(int Turn);
@@ -25,12 +26,21 @@ public:
     void switchDice_(int Turn);
     bool getStop_(int Turn);
     void switchStop_(int Turn);
+    std::string getSymbol(int Turn);
+    std::string getColor(int Turn);
 private:
+    struct symbols{
+        const std::string normal_= "☻";
+        const std::string stop_ = "‼";
+        const std::string one_dice_ = "☺";
+    };
     struct type{
         std::string name_;
         int square_ = 0;
         bool two_dice_ = true;
         bool stop_ = false;
+        symbols symbol_;
+        std::string color_;
     };
     std::map<int,type> player_;
     int num_Player_ ;
