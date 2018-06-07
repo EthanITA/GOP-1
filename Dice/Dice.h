@@ -8,7 +8,7 @@
 
 #include <map>
 #include "../Utils/Util.h"
-#include "../Player/player.h"
+#include "../Player/Player.h"
 #include <vector>
 
 class dice {

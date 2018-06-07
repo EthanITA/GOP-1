@@ -9,12 +9,15 @@
 #include "../Utils/Effects.h"
 #include "../Utils/Util.h"
 #include "../Utils/Colors.h"
+#include <iomanip>
 
 
 Map::Map() {
     //this->dimensions=dimensions;
     int i, nEffects=Effects::numberOfEffects();
     int distanceBtwnEffects=8; //TODO Decidere ogni quante celle avere un effetto
+    double dim = (double)dimensions;
+    nColumns=trunc(dim/10);
    // int map[dimensions][2];
 
     for(i=0;i<dimensions;i++){
@@ -32,7 +35,7 @@ void Map::displayMap() {
     int i,j;
     Colors k;
     for(i=0;i<10;i++){
-        std::cout<<k.kGreen<<"╔══════════════════════════════════════════════════════════════════╗"<<k.kStop<<std::endl;
+      //  std::cout<<k.kGreen<<"╔══════════════════════════════════════════════════════════════════╗"<<k.kStop<<std::endl;
         if(i!=0){
             std::cout<<"│" << i << " - " << map[i][1] << "\t" << i + 10 << " - " << map[i + 10][1] << "\t" << i + 20 << " - "
                     << map[i + 20][1] << "\t" << i + 30 << " - " << map[i + 30][1] <<"│"<< std::endl;
@@ -41,9 +44,32 @@ void Map::displayMap() {
         }
     }
     std::cout<<"--------- FINE 40 "<<map[40][1]<<"---------"<<std::endl;
+   // displayCell(30);
 }
 
 int Map::getCellEffect(int cellNumber) {
     return map[cellNumber][1];
 }
 
+void Map::displayCell(int cellNumber) {
+    int i;
+
+    for(i=0;i<10;i++){
+        //std::cout << '\r'<<"┌────┬──────┐"<<std::endl;
+        std::cout << "\r" << "DIO CANE";std::cout << "\r" << "DIO CANE";
+    }
+
+//    std::cout << '\r'
+//              << std::setw(2) << std::setfill('0') << "┌────┬──────┐" << ':'
+//              << std::setw(2) <<"│"<< ':'
+//              << std::setw(2) << "3" << std::flush;
+}
+
+std::string Map::stringConstructor() {
+    std::string initial[nColumns];
+    std::string stringResources[]={
+      "┌────┬──────┐",//0
+      "└────┴──────┘"//1
+    };
+
+}

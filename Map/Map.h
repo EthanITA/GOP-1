@@ -10,7 +10,7 @@
 
 class Map {
 private:
-    int map[41][2];
+    int map[41][2],nColumns;
    // std::vector map;
    // struct mapStruct;
 public:
@@ -18,6 +18,8 @@ public:
     Map();
     void displayMap();
     int getCellEffect(int cellNumber);
+    void displayCell(int cellNumber);
+    std::string stringConstructor();
 };
 
 
