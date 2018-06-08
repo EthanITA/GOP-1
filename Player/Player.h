@@ -19,8 +19,7 @@ public:
     std::string getName_(int Turn);
     int getSquare_(int Turn);
     void setPlayer_(int Turn, std::string Name);
-    void setSquare_turn(int Turn, int Square);
-    void setSquare_name(std::string Name, int Square);
+    void setSquare_(int Turn, int Square);
     int getNum_player_();
     int getDice_(int Turn);
     void switchDice_(int Turn);
@@ -28,6 +27,8 @@ public:
     void switchStop_(int Turn);
     std::string getSymbol(int Turn);
     std::string getColor(int Turn);
+    std::string square_ToPrint(int Turn);
+
 private:
     struct symbols{
         const std::string normal_= "☻";

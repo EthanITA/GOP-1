@@ -6,9 +6,19 @@
 #include <iostream>
 game::game(){
     welcome();
-    cout << player_.getNum_player_();
+    for (int i = 1; i<=4 && player_.getSquare_(i) < map_.dimensions; i++){
+        player_.setSquare_(i, dice_.throwDice(player_.getDice_(i)));
+        ////da finire
+    }
 }
 
+void game::printPlayers() {
+    for (int i = 1; i <= 4; ++i) {
+        for (int i =0; i<= player_.getSquare_(i); i++){
+            ////da finire
+        }
+    }
+}
 void game::welcome() {
     cout << color_.kWhite << "\n\t\t\t\t\tBenvenuti in GOP!!\n" << color_.kStop << endl;
     mSleep(2000);
@@ -27,18 +37,18 @@ void game::welcome() {
         mSleep(1800);
     }
     cinClear();
-    ////DA FINIRE
-
-
+    Util::clear();
     start();
-    cout << "";
 }
 
 void game::start(){
 //    Deck deck(20); TODO
     initPlayers init;
     player_ = init.returnP_();
-    map_.displayMap();
+    for(int i = 1; i<=4; i++){
+        cout << player_.getColor(i) << player_.getSymbol(i) << color_.kStop;
+    }
+//    map_.displayMap();
 }
 void game::vincoli(){
     cout << endl << "Per un'esperienza di gioco migliore ci sono i seguenti vincoli: " << endl

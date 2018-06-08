@@ -42,17 +42,9 @@ void Player::setPlayer_(int i, std::string name){
             break;
     }
 }
-void Player::setSquare_name(std::string Name, int Square) {
-    bool flag = true;
-    for (int i = 1; i <= num_Player_ && flag; ++i) {
-        if (player_[i].name_ == Name){
-            flag = false;
-            player_[i].square_ = Square;
-        }
-    }
-}
-void Player::setSquare_turn(int turn, int square) {
-    player_[turn].square_ = square;
+
+void Player::setSquare_(int turn, int square) {
+    player_[turn].square_ += square;
 }
 
 std::string Player::getName_(int Turn) {
@@ -77,4 +69,12 @@ std::string Player::getSymbol(int Turn) {
     else
         return player_[Turn].symbol_.normal_;
 
+}
+std::string Player::square_ToPrint(int turn){
+    std::string ret_string;
+    for(int i = 1; i<= (player_[turn].square_/10); i++) //ogni 10 aggiunge \t
+        ret_string += "\t";
+    for (int i=1; i<=((player_[turn].square_/10.0 - player_[turn].square_/10)*10); i++)//ogni 1 aggiunge \n
+        ret_string += "\n";
+    return ret_string;
 }

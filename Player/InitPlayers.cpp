@@ -32,7 +32,7 @@ initPlayers ::initPlayers(){
             p_.setPlayer_(i,inputName(i));
             val = checkSameNickname(p_, i);
         }
-        p_.setSquare_name(p_.getName_(i), 0);
+        p_.setSquare_(i, 0);
         Util::clear();
     }
 
