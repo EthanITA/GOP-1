@@ -10,16 +10,17 @@
 
 class Map {
 private:
-    int map[41][2],nColumns;
-   // std::vector map;
-   // struct mapStruct;
+    std::vector <int> map;
+    int dimensions;
+    int nColumns;
+
 public:
-    static const int dimensions=41;
-    Map();
+    Map(int dimensions);
     void displayMap();
     int getCellEffect(int cellNumber);
     void displayCell(int cellNumber);
     std::string stringConstructor();
+    int getMapDimensions();
 };
 
 

@@ -13,17 +13,17 @@
 
 int main() {
     //game game;
-    Colors c;
-    Player p;
-    for(int i = 1; i<=4; i++)
-        p.setPlayer_(i, to_string(i));
-    for (int i = 1; i <= 4; i++)
-        cout << p.getColor(i) << p.getSymbol(i) << c.kStop << endl;
+//    Colors c;
+//    Player p;
+//    for(int i = 1; i<=4; i++)
+//        p.setPlayer_(i, to_string(i));
+//    for (int i = 1; i <= 4; i++)
+//        cout << p.getColor(i) << p.getSymbol(i) << c.kStop << endl;
 //    int i;
 //    Effects e = Effects();
-//
-//    Map m=Map();
-//    m.displayMap();
+
+    Map m=Map(61);
+     m.displayMap();
 
 //    for(i=0;i<41;i++){
 //        std::cout<<i<<"- Get cell effect number "<<m.getCellEffect(i)<<std::endl;
