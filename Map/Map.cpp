@@ -10,7 +10,7 @@
 #include "../Utils/Util.h"
 #include "../Utils/Colors.h"
 #include <iomanip>
-
+Map::Map(){}
 
 Map::Map(int dimensions) {
     this->dimensions=dimensions;

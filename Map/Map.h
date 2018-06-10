@@ -15,6 +15,7 @@ private:
     int nColumns;
 
 public:
+    Map(); //è possibile usare map senza dare dimensions
     Map(int dimensions);
     void displayMap();
     int getCellEffect(int cellNumber);
