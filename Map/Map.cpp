@@ -13,45 +13,37 @@
 Map::Map(){}
 
 Map::Map(int dimensions) {
-    this->dimensions=dimensions;
-    int i, nEffects=Effects::numberOfEffects(), distanceBtwnEffects=8; //TODO Decidere ogni quante celle avere un effetto
+    int i,j,cellNumber=0, nEffects=Effects::numberOfEffects(), distanceBtwnEffects=8; //TODO Decidere ogni quante celle avere un effetto
     double dim = (double)dimensions;
+    this->dimensions=dimensions;
     nColumns=trunc(dim/10);
 
-    for(i=0;i<=dimensions;i++){
-        if(i%distanceBtwnEffects==0) {
-            map.push_back(Util::randomFrom1(nEffects));
-        } else{
-            map.push_back(0);
-        }
-//        std::cout<<i<<" - "<<map.at(i)<<std::endl;
+    int** matrix = new int*[rows];
+    if (rows)
+    {
+        matrix[0] = new int[rows * nColumns];
+        for ( i = 1; i < rows; ++i)
+            matrix[i] = matrix[0] + i * nColumns;
     }
 
+    for(j=0;j<=nColumns;j++){
+        for(i=0;i<rows;i++){
+          if(cellNumber<=dimensions){
+              matrix[i][j]=cellNumber;
+              std::cout<<matrix[i][j]<<" ";
+              cellNumber++;
+          }
+          else{
+              break;
+          }
+        }
+        std::cout<<"\n"<<std::endl;
+    }
 }
 
 void Map::displayMap() {
-    int i,j;
-    Colors k;
-    std::cout<<"N colums "<<nColumns<<std::endl;
-    std::cout<<"┌";
-    for(j=0;j<=nColumns;j++)
-        std::cout<<"──";
-    std::cout<<"┐"<<std::endl;
-    for(i=0;i<10;i++){
-        if(i!=0){
-            std::cout<<"│";
-            for(j=0;j<=nColumns;j++){
-                std::cout<<i<<" ";
-            }
-           std::cout<<"│"<<std::endl;
-        }else {
-        }
-
-    }
-    std::cout<<"└";
-    for(j=0;j<=nColumns;j++)
-        std::cout<<"──";
-    std::cout<<"┘"<<std::endl;
+    int i,j,column;
+    //TODO IMPLEMENTAZIONE FIGA
 
 }
 

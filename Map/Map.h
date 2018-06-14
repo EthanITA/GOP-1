@@ -10,7 +10,9 @@
 
 class Map {
 private:
+    int rows =10;
     std::vector <int> map;
+  //  std::vector <std::vector<int>> mapMatrix;
     int dimensions;
     int nColumns;
 

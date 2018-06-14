@@ -22,8 +22,8 @@ int main() {
 //    int i;
 //    Effects e = Effects();
 
-    Map m=Map(61);
-     m.displayMap();
+    Map m=Map(37);
+    // m.displayMap();
 
 //    for(i=0;i<41;i++){
 //        std::cout<<i<<"- Get cell effect number "<<m.getCellEffect(i)<<std::endl;
