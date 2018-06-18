@@ -10,19 +10,13 @@
 
 class Map {
 private:
-    int rows =10;
-    std::vector <int> map;
-  //  std::vector <std::vector<int>> mapMatrix;
+    int mapMatrix[11][10];
     int dimensions;
-    int nColumns;
 
 public:
-    Map(); //è possibile usare map senza dare dimensions
-    Map(int dimensions);
+    Map();
     void displayMap();
     int getCellEffect(int cellNumber);
-    void displayCell(int cellNumber);
-    std::string stringConstructor();
     int getMapDimensions();
 };
 

@@ -10,61 +10,44 @@
 #include "../Utils/Util.h"
 #include "../Utils/Colors.h"
 #include <iomanip>
-Map::Map(){}
 
-Map::Map(int dimensions) {
-    int i,j,cellNumber=0, nEffects=Effects::numberOfEffects(), distanceBtwnEffects=8; //TODO Decidere ogni quante celle avere un effetto
-    double dim = (double)dimensions;
-    this->dimensions=dimensions;
-    nColumns=trunc(dim/10);
 
-    int** matrix = new int*[rows];
-    if (rows)
-    {
-        matrix[0] = new int[rows * nColumns];
-        for ( i = 1; i < rows; ++i)
-            matrix[i] = matrix[0] + i * nColumns;
-    }
+Map::Map() {
+    int i,j=0,cellNumber=0, nEffects=Effects::numberOfEffects(), distanceBtwnEffects=8; //TODO Decidere ogni quante celle avere un effetto
+    int min=40,max=80;
+    dimensions=Util::random(min,max);
+    std::cout<<"Dimensions "<<dimensions<<std::endl;
 
-    for(j=0;j<=nColumns;j++){
-        for(i=0;i<rows;i++){
-          if(cellNumber<=dimensions){
-              matrix[i][j]=cellNumber;
-              std::cout<<matrix[i][j]<<" ";
-              cellNumber++;
-          }
-          else{
-              break;
-          }
+
+
+    for (i = 0; i < 11; i++) {
+        while(j<10&&cellNumber<=dimensions){
+            mapMatrix[i][j]=cellNumber;
+            cellNumber++;
+            j++;
         }
-        std::cout<<"\n"<<std::endl;
+        j=0;
     }
 }
 
 void Map::displayMap() {
-    int i,j,column;
-    //TODO IMPLEMENTAZIONE FIGA
+    int cellNumber=0,i,j=0;
 
-}
 
-int Map::getCellEffect(int cellNumber) {
-    return map.at(cellNumber);
-}
-
-void Map::displayCell(int cellNumber) {
-    int i;
-
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 11; i++) {
+        while(j<10&&cellNumber<=dimensions){
+            std::cout<<"| i="<<i<<" j="<<j<<" "<<mapMatrix[i][j]<<"| ";
+            cellNumber++;
+            j++;
+        }
+        j=0;
+        std::cout<<"\n"<<std::endl;
 
     }
 }
 
-std::string Map::stringConstructor() {
-    std::string initial[nColumns];
-    std::string stringResources[]={
-      "┌────┬──────┐",//0
-      "└────┴──────┘"//1
-    };
+int Map::getCellEffect(int cellNumber) {
+    return 1;
 }
 
 int Map::getMapDimensions() {
