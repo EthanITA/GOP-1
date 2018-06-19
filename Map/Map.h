@@ -17,6 +17,7 @@ public:
     void displayMap();
     int getCellEffect(int cellNumber);
     int getMapDimensions();
+    std::string constructCellString();
 };
 
 

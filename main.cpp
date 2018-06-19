@@ -24,8 +24,8 @@ int main() {
 
     Map m=Map();
     m.displayMap();
-    Util::clear();
-    m.displayMap();
+//    Util::clear();
+//    m.displayMap();
 
 	return 0;
 }
