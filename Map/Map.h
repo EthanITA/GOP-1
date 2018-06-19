@@ -10,8 +10,7 @@
 
 class Map {
 private:
-    int mapMatrix[11][10];
-    int dimensions;
+    int mapMatrix[11][10], dimensions,dimensionsTrunc;
 
 public:
     Map();
