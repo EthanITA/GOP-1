@@ -7,16 +7,17 @@
 
 
 #include <vector>
+#include "../Player/Player.h"
 
 class Map {
 private:
     int mapMatrix[11][10], dimensions,dimensionsTrunc;
-
 public:
     Map();
-    void displayMap();
+    void displayMap(player);
     int getCellEffect(int cellNumber);
     int getMapDimensions();
+    std::string constructCellString();
 };
 
 

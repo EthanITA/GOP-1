@@ -9,6 +9,7 @@
 #include "../Utils/Effects.h"
 #include "../Utils/Util.h"
 #include "../Utils/Colors.h"
+#include "../Game/Game.h"
 #include <iomanip>
 
 
@@ -16,9 +17,9 @@ Map::Map() {
     int i,j=0,cellNumber=0, nEffects=Effects::numberOfEffects(), distanceBtwnEffects=8; //TODO Decidere ogni quante celle avere un effetto
     int min=40,max=80;
     dimensions=Util::random(min,max);
-  dimensions=69;
+//     dimensions=99;
     dimensionsTrunc=trunc((double)dimensions/10);
-    std::cout<<"Dimensions "<<dimensionsTrunc<<std::endl;
+//    std::cout<<"Dimensions "<<dimensionsTrunc<<std::endl;
 
 
 
@@ -32,8 +33,9 @@ Map::Map() {
     }
 }
 
-void Map::displayMap() {
+void Map::displayMap(player p) {
     int cellNumber=0,j=0,remainingCellsToFill=0;
+    std::string dio;
 
     std::cout<<"╔═════════╤═════════╤═════════╤═════════╤═════════╤═════════╤═════════╤═════════╤═════════╤═════════╗"<<std::endl;
     for (auto &i : mapMatrix) {
@@ -42,18 +44,23 @@ void Map::displayMap() {
                 std::cout<<"║";
             if(cellNumber>9&&cellNumber<=dimensions){
                 if(j!=9){
-                    std::cout<<" "<< i[j]<<"      │";
+                    std::cout<<" "<< i[j]<<"  " << p.getSymbolsForDraw(cellNumber)<< "│";
                 }
                 else{
-                    std::cout<<" "<< i[j]<<"      ";
+                    std::cout<<" "<< i[j]<<"  " << p.getSymbolsForDraw(cellNumber);
                 }
             }else{
-                if(j!=9){
-                    std::cout<<" 0"<< i[j]<<"      │";
+                if(cellNumber!=0){
+                    if(j!=9){
+                        std::cout<<" 0"<< i[j]<<"  " << p.getSymbolsForDraw(cellNumber)<< "│";
+                    }
+                    else{
+                        std::cout<<" 0"<< i[j]<<"  " << p.getSymbolsForDraw(cellNumber);
+                    }
+                }else{
+                    std::cout<<" GO  " << p.getSymbolsForDraw(cellNumber) << "│";
                 }
-                else{
-                    std::cout<<" 0"<< i[j]<<"      ";
-                }
+
             }
 
 //            if(cellNumber>dimensions){
@@ -67,7 +74,8 @@ void Map::displayMap() {
             if(j==9&&cellNumber<=dimensions)
             {
                 std::cout<<"║"<<std::endl;
-            }else if(cellNumber>dimensions){
+            }else if(cellNumber>=dimensions){
+//                std::cout<<"DENTRO "<<std::endl;
                 remainingCellsToFill=10-(dimensions%10)-2;
                 for (int k = 0; k <remainingCellsToFill ; ++k) {
                     std::cout<<"         │";
@@ -84,7 +92,9 @@ void Map::displayMap() {
 
     }
     std::cout<<"╚═════════╧═════════╧═════════╧═════════╧═════════╧═════════╧═════════╧═════════╧═════════╧═════════╝"<<std::endl;
-    std::cout<<"RemaingCellsToFill"<<remainingCellsToFill<<std::endl;
+//    std::cout<<"RemaingCellsToFill"<<remainingCellsToFill<<std::endl;
+//    dio=constructCellString();
+//    std::cout<<constructCellString()<<std::endl;
 }
 
 int Map::getCellEffect(int cellNumber) {
@@ -94,3 +104,9 @@ int Map::getCellEffect(int cellNumber) {
 int Map::getMapDimensions() {
     return dimensions;
 }
+
+std::string Map::constructCellString(){
+    std::string complete="asdasd";
+
+    return complete;
+};

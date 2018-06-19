@@ -4,34 +4,30 @@
 
 #include "Game.h"
 #include <iostream>
+#include "../Utils/Util.h"
 game::game(){
-    int winner;
+    int winner = 0, dice;
     welcome();
-    cout << map_.getMapDimensions();
-    for (int i = 1; player_.getSquare_(i) < map_.getMapDimensions(); i++){ //// implementato per testare, verrà rimosso!!
-        if(i > player_.getNum_player_()){
+    for (int i = 1; player_.getSquare_(i) < map_.getMapDimensions() && winner == 0; i++){
+        Util::clear();
+        if (i == (player_.getNum_player_() + 1))
             i = 1;
-            Util::clear();
+        dice = dice_.throwDice(player_.getDice_(i));
+        cout << player_.getName_(i) << " avanza di " << dice << " caselle" << endl;
+        if(map_.getMapDimensions() <= (dice + player_.getSquare_(i))){
+            player_.setSquare_(i, map_.getMapDimensions() - 2) ;
+            winner = i;
         }
-        player_.setSquare_(i, dice_.throwDice(player_.getDice_(i)));
-        cinClear();
-        if(player_.getSquare_(i) >= map_.getMapDimensions()) {
-            cout << color_.kWhite << "♪ Congratulazioni‼ \n\t" << player_.getName_(i) << ", hai vinto!\n\n";
-        }
-        else{
-            cout << player_.getName_(i) << " è alla casella " << player_.getSquare_(i) << "\n";
-        }
+        else
+            player_.setSquare_(i, dice);
+        map_.displayMap(player_);
         cin.get();
+        cinClear();
     }
+    cout << endl << "Bravo " << player_.getName_(winner) << " hai vinto!";
+    cin.get();
 }
 
-void game::printPlayers() {
-    for (int i = 1; i <= 4; ++i) {
-        for (int i =0; i<= player_.getSquare_(i); i++){
-            ////da finire
-        }
-    }
-}
 void game::welcome() {
     cout << color_.kWhite << "\n\t\t\t\t\tBenvenuti in GOP!!\n" << color_.kStop << endl;
     mSleep(2000);
@@ -58,10 +54,9 @@ void game::start(){
 //    Deck deck(20); TODO
     initPlayers init;
     player_ = init.returnP_();
-    for(int i = 1; i<=player_.getNum_player_(); i++){
-        cout << player_.getColor(i) << player_.getSymbol(i) << color_.kStop;
-    }
-    map_.displayMap();
+    map_.displayMap(player_);
+    cout << "Inserire qualcosa per proseguire: ";
+    cin.get();
 }
 void game::vincoli(){
     cout << endl << "Per un'esperienza di gioco migliore ci sono i seguenti vincoli: " << endl
@@ -88,7 +83,7 @@ void game::joke1(){
 void game::caratteristica(){
     cout << endl << "Inoltre, GOP avrà le seguenti caratteristiche:" << endl
          << "(1) Si gioca, normalmente, con 2 dadi" << endl
-         << "(2) Si avrà una mappa di " << "" << " caselle, in questa partita" << endl //TODO dimensions
+         << "(2) Si avrà una mappa fino a " << map_.getMapDimensions() << " caselle, in questa partita" << endl //TODO dimensions
          << "(3) I giocatori avranno un simbolo identificati con colori diversi" <<endl
          << "(4) Per gli effetti di carte o caselle, il simbolo può venire cambiato" << endl;
 }

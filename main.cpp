@@ -12,9 +12,9 @@
 
 
 int main() {
-    //game game;
+    game game;
 //    Colors c;
-//    Player p;
+//    player p;
 //    for(int i = 1; i<=4; i++)
 //        p.setPlayer_(i, to_string(i));
 //    for (int i = 1; i <= 4; i++)
@@ -22,10 +22,11 @@ int main() {
 //    int i;
 //    Effects e = Effects();
 
-    Map m=Map();
-    m.displayMap();
-    Util::clear();
-    m.displayMap();
+//    Map m=Map();
+//    m.displayMap();
+    cin.get();
+//    Util::clear();
+//    m.displayMap();
 
 	return 0;
 }
