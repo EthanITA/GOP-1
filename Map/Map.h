@@ -11,13 +11,15 @@
 
 class Map {
 private:
-    int mapMatrix[11][10], dimensions,dimensionsTrunc;
+    int mapMatrix[11][10], dimensions,drawACard[100][2],cellEffect[100][2];
 public:
     Map();
-    void displayMap(player);
+    void displayMap();
     int getCellEffect(int cellNumber);
     int getMapDimensions();
-    std::string constructCellString();
+    std::string constructCellString(int resource, int cellNumber);
+    void checkForPlayers(int cellnumber);
+    int getDrawACard(int cellNumber);
 };
 
 
