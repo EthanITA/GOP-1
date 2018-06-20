@@ -4,27 +4,27 @@
 
 #include "Player.h"
 
-player::player(){}
-player::player(int n){
+Player::Player(){}
+Player::Player(int n){
     num_Player_ = n;
 }
 
-bool player::getStop_(int Turn) {
+bool Player::getStop_(int Turn) {
     return player_[Turn].stop_;
 }
 
-void player::switchStop_(int Turn) {
+void Player::switchStop_(int Turn) {
     player_[Turn].stop_ = !player_[Turn].stop_;
 }
 
-int player::getDice_(int Turn) {
+int Player::getDice_(int Turn) {
     return (player_[Turn].two_dice_ + 1);
 }
 
-void player::switchDice_(int Turn) {
+void Player::switchDice_(int Turn) {
     player_[Turn].two_dice_ = !player_[Turn].two_dice_;
 }
-void player::setPlayer_(int i, std::string name){
+void Player::setPlayer_(int i, std::string name){
     Colors c_;
     player_ [i].name_ = move(name);
     switch (i){
@@ -43,25 +43,25 @@ void player::setPlayer_(int i, std::string name){
     }
 }
 
-void player::setSquare_(int turn, int square) {
+void Player::setSquare_(int turn, int square) {
     player_[turn].square_ += square;
 }
 
-std::string player::getName_(int Turn) {
+std::string Player::getName_(int Turn) {
     return player_[Turn].name_;
 }
-int player::getSquare_(int Turn){
+int Player::getSquare_(int Turn){
     return player_[Turn].square_;
 }
-int player::getNum_player_(){
+int Player::getNum_player_(){
     return num_Player_;
 }
 
-std::string player::getColor(int Turn) {
+std::string Player::getColor(int Turn) {
     return player_[Turn].color_;
 }
 
-std::string player::getSymbolsForDraw(int Square) {
+std::string Player::getSymbolsForDraw(int Square) {
     Colors c;
     std::string ret = "";
     switch (getNum_player_()){
@@ -84,7 +84,7 @@ std::string player::getSymbolsForDraw(int Square) {
     return ret;
 }
 
-std::string player::getSymbol(int Turn) {
+std::string Player::getSymbol(int Turn) {
     if(getStop_(Turn))
         return player_[Turn].symbol_.stop_;
     else if(getDice_(Turn) == 1)
@@ -93,7 +93,7 @@ std::string player::getSymbol(int Turn) {
         return player_[Turn].symbol_.normal_;
 
 }
-std::string player::square_ToPrint(int turn){
+std::string Player::square_ToPrint(int turn){
     std::string ret_string;
     for(int i = 1; i<= (player_[turn].square_/10); i++) //ogni 10 aggiunge \t
         ret_string += "\t";

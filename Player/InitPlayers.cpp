@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int initPlayers::checkSameNickname(player p, int key){
+int initPlayers::checkSameNickname(Player p, int key){
     int value = 0;
     for (int i = 1; i < key; ++i) {
         if (p.getName_(i) == p.getName_(key))
@@ -17,11 +17,11 @@ int initPlayers::checkSameNickname(player p, int key){
     }
     return value; }
 
-player initPlayers::returnP_() {
+Player initPlayers::returnP_() {
     return p_;
 }
 initPlayers ::initPlayers(){
-    player p = player(inputNumber());
+    Player p = Player(inputNumber());
     p_ = p; //input players num
     for (int i = 1; i <= p_.getNum_player_(); ++i) {
         cout << "Nome del giocatore " << i << ": ";

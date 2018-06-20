@@ -20,7 +20,7 @@ game::game(){
         }
         else
             player_.setSquare_(i, dice);
-        map_.displayMap(player_);
+//        map_.displayMap(player_);//TODO Da togliere il commento dopo che viene implementato in MAP
         cin.get();
         cinClear();
     }
@@ -54,7 +54,7 @@ void game::start(){
 //    Deck deck(20); TODO
     initPlayers init;
     player_ = init.returnP_();
-    map_.displayMap(player_);
+//    map_.displayMap(player_);
     cout << "Inserire qualcosa per proseguire: ";
     cin.get();
 }

@@ -11,10 +11,10 @@
 #include "../Utils/Colors.h"
 
 
-class player {
+class Player {
 public:
-    player();
-    player(int Number);
+    Player();
+    Player(int Number);
 
     std::string getName_(int Turn);
     int getSquare_(int Turn);

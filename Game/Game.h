@@ -19,7 +19,7 @@ class game {
 public:
     game();
 private:
-    player player_;
+    Player player_;
     Colors color_;
     dice dice_;
     Map map_;
