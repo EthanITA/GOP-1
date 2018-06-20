@@ -16,18 +16,22 @@ public:
     Player();
     Player(int Number);
 
-    std::string getName_(int Turn);
-    int getSquare_(int Turn);
-    void setPlayer_(int Turn, std::string Name);
-    void setSquare_(int Turn, int Square);
     int getNum_player_();
+
+    int getSquare_(int Turn);
+    void setSquare_(int Turn, int Square);
+
     int getDice_(int Turn);
     void switchDice_(int Turn);
+
     bool getStop_(int Turn);
     void switchStop_(int Turn);
-    std::string getSymbol(int Turn);
+
+    void setPlayer_(int Turn, std::string Name);
+    std::string getName_(int Turn);
     std::string getColor(int Turn);
-    std::string square_ToPrint(int Turn);
+    std::string getSymbol(int Turn);
+
     std::string getSymbolsForDraw(int Square);
 
 private:
@@ -35,8 +39,8 @@ private:
         const std::string normal_= "▓";
         const std::string one_dice_ = "▒";
         const std::string stop_ = "░";
-        const std::string empty_ = " ";
     };
+
     struct type{
         std::string name_;
         int square_ = 0;
@@ -45,8 +49,9 @@ private:
         symbols symbol_;
         std::string color_;
     };
+
     std::map<int,type> player_;
-    int num_Player_ = 1;
+    int num_Player_;
 };
 
 

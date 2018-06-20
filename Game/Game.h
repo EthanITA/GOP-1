@@ -24,11 +24,11 @@ private:
     dice dice_;
     Map map_;
 
-    void start();
     void welcome();
     void vincoli();
     void caratteristica();
     void joke1();
+    void start();
 };
 
 

@@ -9,20 +9,9 @@
 
 using namespace std;
 
-int initPlayers::checkSameNickname(Player p, int key){
-    int value = 0;
-    for (int i = 1; i < key; ++i) {
-        if (p.getName_(i) == p.getName_(key))
-            value = i;
-    }
-    return value; }
-
-Player initPlayers::returnP_() {
-    return p_;
-}
 initPlayers ::initPlayers(){
     Player p = Player(inputNumber());
-    p_ = p; //input players num
+    p_ = p;
     for (int i = 1; i <= p_.getNum_player_(); ++i) {
         cout << "Nome del giocatore " << i << ": ";
         p_.setPlayer_(i, inputName(i));
@@ -39,6 +28,27 @@ initPlayers ::initPlayers(){
 
 }
 
+int initPlayers::inputNumber(){
+    std::cout << "Inserire il numero di giocatori: ";
+    bool flag = true;
+    int num;
+    while (flag){
+        cin>>num;
+        // [1, 4]
+        if (num<=4 && num>=1){
+            flag = false;
+        }
+        else if (cin.fail()){
+            cinClear();
+            cout << "Solo numeri interi! ";
+        }
+        else{
+            cinClear();
+            cout << "Numeri da 1 a 4! ";}
+        Util::clear();
+    }
+    return num;
+}
 std::string initPlayers::inputName(int i){
     string name, tmp;
     cin >> name;
@@ -70,29 +80,15 @@ std::string initPlayers::inputName(int i){
     return name;
 }
 
-int initPlayers::inputNumber(){
-    std::cout << "Inserire il numero di giocatori: ";
-    bool flag = true;
-    int num;
-    while (flag){
-        cin>>num;
-        // [1, 4]
-        if (num<=4 && num>=1){
-            flag = false;
-        }
-        else if (cin.fail()){
-            cinClear();
-            cout << "Solo numeri interi! ";
-        }
-        else{
-            cinClear();
-            cout << "Numeri da 1 a 4! ";}
-        Util::clear();
+int initPlayers::checkSameNickname(Player p, int key){
+    int value = 0;
+    for (int i = 1; i < key; ++i) {
+        if (p.getName_(i) == p.getName_(key))
+            value = i;
     }
-    return num;
-}
+    return value; }
 
-//static player initPlayers::getPlayer (int n){
-//	return p[n];
-//}
+Player initPlayers::returnP_() {
+    return p_;
+}
 

@@ -4,7 +4,6 @@
 
 #include "Game.h"
 #include <iostream>
-#include "../Utils/Util.h"
 game::game(){
     int winner = 0, dice;
     welcome();
@@ -21,7 +20,6 @@ game::game(){
         else
             player_.setSquare_(i, dice);
 //        map_.displayMap(player_);//TODO Da togliere il commento dopo che viene implementato in MAP
-        cin.get();
         cinClear();
     }
     cout << endl << "Bravo " << player_.getName_(winner) << " hai vinto!";
@@ -36,10 +34,12 @@ void game::welcome() {
     cin >> check;
     if(inputCheck(check) == "negative"){
         vincoli();
-        Util::clear();
+        mSleep(10000);
         caratteristica();
+        cinClear();
         cout << endl << "\tProcediamo? " ;
-        joke1();
+        if(cin.get());
+//        joke1();
     }
     else{
         cout << "Va bene, allora iniziamo ☺" << endl;
@@ -50,6 +50,19 @@ void game::welcome() {
     start();
 }
 
+void game::vincoli(){
+    cout << endl << "Per un'esperienza di gioco migliore ci sono i seguenti vincoli: " << endl
+         << "(1) Numero di giocatore da 1 a 4" << endl
+         << "(2) Nome del giocatore con non più di 10 caratteri" << endl
+         << "(3) Nomi dei giocatore diversi tra di loro" << endl << endl;
+}
+void game::caratteristica(){
+    cout << endl << "Inoltre, GOP avrà le seguenti caratteristiche:" << endl
+         << "(1) Si gioca, normalmente, con 2 dadi" << endl
+         << "(2) Si avrà una mappa fino a " << map_.getMapDimensions() << " caselle, in questa partita" << endl
+         << "(3) I giocatori avranno un simbolo identificati con colori diversi" <<endl
+         << "(4) Per gli effetti di carte o caselle, il simbolo può venire cambiato" << endl;
+}
 void game::start(){
 //    Deck deck(20); TODO
     initPlayers init;
@@ -58,12 +71,7 @@ void game::start(){
     cout << "Inserire qualcosa per proseguire: ";
     cin.get();
 }
-void game::vincoli(){
-    cout << endl << "Per un'esperienza di gioco migliore ci sono i seguenti vincoli: " << endl
-         << "(1) Numero di giocatore da 1 a 4" << endl
-         << "(2) Nome del giocatore con non più di 10 caratteri" << endl
-         << "(3) Nomi dei giocatore diversi tra di loro" << endl;
-}
+
 void game::joke1(){
     std::string abc;
     cin >> abc;
@@ -79,11 +87,4 @@ void game::joke1(){
     else
         cout << "\tPerfetto!" ;
     cout << endl;
-}
-void game::caratteristica(){
-    cout << endl << "Inoltre, GOP avrà le seguenti caratteristiche:" << endl
-         << "(1) Si gioca, normalmente, con 2 dadi" << endl
-         << "(2) Si avrà una mappa fino a " << map_.getMapDimensions() << " caselle, in questa partita" << endl //TODO dimensions
-         << "(3) I giocatori avranno un simbolo identificati con colori diversi" <<endl
-         << "(4) Per gli effetti di carte o caselle, il simbolo può venire cambiato" << endl;
 }
