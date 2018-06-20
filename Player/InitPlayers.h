@@ -9,12 +9,12 @@
 class initPlayers {
 public:
 	initPlayers();
-    Player returnP_();
+    player returnP_();
 //	player getPlayer(int n);
 //	player p[4];
 private:
-    Player p_;
-	int checkSameNickname(Player, int);
+    player p_;
+	int checkSameNickname(player, int);
 	int inputNumber();
 	std::string inputName(int);
 };

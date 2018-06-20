@@ -14,16 +14,16 @@
 #include "../Utils/Util.h"
 
 using namespace std;
+
 class game {
 public:
     game();
 private:
-    Player player_;
+    player player_;
     Colors color_;
     dice dice_;
     Map map_;
 
-    void printPlayers();
     void start();
     void welcome();
     void vincoli();
