@@ -12,8 +12,10 @@
 class Map {
 private:
     int mapMatrix[11][10], dimensions,drawACard[100][2],cellEffect[100][2];
+    Player p;
 public:
     Map();
+    Map(Player p);
     void displayMap();
     int getCellEffect(int cellNumber);
     int getMapDimensions();

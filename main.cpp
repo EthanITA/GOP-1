@@ -14,7 +14,7 @@
 int main() {
     //game game;
 //    Colors c;
-//    Player p;
+//  Player p;
 //    for(int i = 1; i<=4; i++)
 //        p.setPlayer_(i, to_string(i));
 //    for (int i = 1; i <= 4; i++)
@@ -22,8 +22,8 @@ int main() {
 //    int i;
 //    Effects e = Effects();
 
-    Map m=Map();
-    m.displayMap();
+//    Map m=Map(p);
+//    m.displayMap();
 //    Util::clear();
 //    m.displayMap();
 

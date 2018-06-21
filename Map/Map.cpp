@@ -11,10 +11,12 @@
 #include "../Utils/Colors.h"
 #include <iomanip>
 
+Map::Map(){};
 
-Map::Map() {
+Map::Map(Player p) {
     int j=0,cellNumber=0, nEffects=Effects::numberOfEffects(), distanceBtwnEffects=8, distanceBtwnDrawCard=6; //TODO Decidere ogni quante celle avere un effetto
     int min=40,max=80;
+    this->p=p;
     dimensions=Util::random(min,max);
 
     for (auto &i : mapMatrix) {
@@ -25,7 +27,7 @@ Map::Map() {
                 cellEffect[cellNumber][1]=0;
             }
             else{
-                cellEffect[cellNumber][1]=1;
+                cellEffect[cellNumber][1]=Util::randomFrom1(nEffects);
             }
 
             if(cellNumber%distanceBtwnDrawCard!=0){
@@ -156,17 +158,16 @@ std::string Map::constructCellString(int resource, int cellNumber){
 
 };
 
-void Map::checkForPlayers(int cellnumber) {
-    std::string finalString, playerSimbols={
-            "•"
-    };
+void Map::checkForPlayers(int cellNumber) {
+    std::string finalString;
     Colors c;
 
-    for (int i = 0; i < 4; ++i) {
-        //Cose per controllare se ci sono giocatori in questa cella.
-        finalString.append("•");
-    }
-    std::cout<<c.kMagenta<<finalString<<c.kStop;
+//    for (int i = 0; i < 4; ++i) {
+//        //Cose per controllare se ci sono giocatori in questa cella.
+//        finalString.append("•");
+//    }
+//    std::cout<<c.kMagenta<<finalString<<c.kStop;
+    std::cout<<p.getSymbolsForDraw(cellNumber)<<std::endl;
 
 }
 
