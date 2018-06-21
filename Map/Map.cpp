@@ -11,12 +11,11 @@
 #include "../Utils/Colors.h"
 #include <iomanip>
 
-Map::Map(){};
 
-Map::Map(Player p) {
+
+Map::Map() {
     int j=0,cellNumber=0, nEffects=Effects::numberOfEffects(), distanceBtwnEffects=8, distanceBtwnDrawCard=6; //TODO Decidere ogni quante celle avere un effetto
     int min=40,max=80;
-    this->p=p;
     dimensions=Util::random(min,max);
 
     for (auto &i : mapMatrix) {
@@ -44,7 +43,7 @@ Map::Map(Player p) {
     }
 }
 
-void Map::displayMap() {
+void Map::displayMap(Player p) {
     int cellNumber=0,j=0,remainingCellsToFill=0;
     Colors c;
 
@@ -59,29 +58,29 @@ void Map::displayMap() {
             if(cellNumber>9&&cellNumber<=dimensions){
                 if(j!=9){
                     std::cout<<" "<< i[j]<<" ";
-                    checkForPlayers(i[j]);
+                    checkForPlayers(i[j],p);
                     std::cout<<" │";
                 }
                 else{
                     std::cout<<" "<< i[j]<<" ";
-                    checkForPlayers(i[j]);
+                    checkForPlayers(i[j],p);
                     std::cout<<" ";
                 }
             }else{
                 if(cellNumber!=0){
                     if(j!=9){
                         std::cout<<" 0"<< i[j]<<" ";
-                        checkForPlayers(i[j]);
+                        checkForPlayers(i[j],p);
                         std::cout<<" │";
                     }
                     else{
                         std::cout<<" 0"<< i[j]<<" ";
-                        checkForPlayers(i[j]);
+                        checkForPlayers(i[j],p);
                         std::cout<<" ";
                     }
                 }else{
                     std::cout<<" GO ";
-                    checkForPlayers(i[j]);
+                    checkForPlayers(i[j],p);
                     std::cout<<" │";
                 }
 
@@ -158,7 +157,7 @@ std::string Map::constructCellString(int resource, int cellNumber){
 
 };
 
-void Map::checkForPlayers(int cellNumber) {
+void Map::checkForPlayers(int cellNumber, Player p) {
     std::string finalString;
     Colors c;
 
@@ -167,7 +166,7 @@ void Map::checkForPlayers(int cellNumber) {
 //        finalString.append("•");
 //    }
 //    std::cout<<c.kMagenta<<finalString<<c.kStop;
-    std::cout<<p.getSymbolsForDraw(cellNumber)<<std::endl;
+    std::cout<<p.getSymbolsForDraw(cellNumber);
 
 }
 
