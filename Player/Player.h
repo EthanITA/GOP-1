@@ -34,6 +34,8 @@ public:
 
     std::string getSymbolsForDraw(int Square);
 
+    void switchBold(int Turn);
+
 private:
     struct symbols{
         const std::string normal_= "▓";
@@ -48,10 +50,14 @@ private:
         bool stop_ = false;
         symbols symbol_;
         std::string color_;
+        std::string color_no_bold;
+        std::string color_switched_;
     };
 
+    bool color_bold_ = true;
     std::map<int,type> player_;
     int num_Player_;
+    std::string draw = "";
 };
 
 

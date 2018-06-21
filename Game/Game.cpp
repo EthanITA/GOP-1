@@ -5,25 +5,44 @@
 #include "Game.h"
 #include <iostream>
 game::game(){
-    int winner = 0, dice;
+    int winner = 0, dice, step;
     welcome();
     for (int i = 1; player_.getSquare_(i) < map_.getMapDimensions() && winner == 0; i++){
-        Util::clear();
+        cinClear();
         if (i == (player_.getNum_player_() + 1))
             i = 1;
         dice = dice_.throwDice(player_.getDice_(i));
-        cout << player_.getName_(i) << " avanza di " << dice << " caselle" << endl;
-        if(map_.getMapDimensions() <= (dice + player_.getSquare_(i))){
-            player_.setSquare_(i, map_.getMapDimensions() - 2) ;
-            winner = i;
+        player_.switchBold(i);
+        for(int j = 1; j <= dice && winner == 0; j++){
+            player_.setSquare_(i, 1);
+            if (player_.getSquare_(i) == map_.getMapDimensions())
+                winner = i;
+            Util::clear();
+            map_.displayMap(player_);
+            mSleep(350);
+            step = j;
         }
-        else
-            player_.setSquare_(i, dice);
-//        map_.displayMap(player_);//TODO Da togliere il commento dopo che viene implementato in MAP
-        cinClear();
+        if(dice == 0){
+            step = 0;
+            Util::clear();
+            map_.displayMap(player_);
+        }
+
+        cout << "\t\t\t\t" << player_.getColor(i) << player_.getName_(i) << color_.kStop << " è avanzato di " << color_.kWhite
+             << step << color_.kStop << " caselle!" << endl;
+        player_.switchBold(i);
+//        if(map_.getMapDimensions() <= (dice + player_.getSquare_(i))){
+//            player_.setSquare_(i, map_.getMapDimensions()) ;
+//            winner = i;
+//        }
+//        else
+//            player_.setSquare_(i, dice);
+//        map_.displayMap(player_);
     }
-    cout << endl << "Bravo " << player_.getName_(winner) << " hai vinto!";
-    cin.get();
+    player_.switchBold(winner);
+    cout << color_.kWhite << "\n\n\t\t\t\tBravo " << player_.getColor(winner) << player_.getName_(winner)
+         << color_.kStop << color_.kWhite << " hai vinto!" << color_.kStop;
+    cinClear();
 }
 
 void game::welcome() {
@@ -67,9 +86,8 @@ void game::start(){
 //    Deck deck(20); TODO
     initPlayers init;
     player_ = init.returnP_();
-//    map_.displayMap(player_);
-    cout << "Inserire qualcosa per proseguire: ";
-    cin.get();
+    map_.displayMap(player_);
+    cout << "Inserire qualcosa per iniziare: ";
 }
 
 void game::joke1(){

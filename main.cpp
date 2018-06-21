@@ -12,7 +12,13 @@
 
 
 int main() {
-    //game game;
+
+//    const std::string normal_= "▓";
+//    const std::string one_dice_ = "▒";
+//    const std::string stop_ = "░";
+//    cout << "▓\t" << "▒\t" << "░";
+//    cin.get();
+    game game;
 //    Colors c;
   Player p;
 //    for(int i = 1; i<=4; i++)
