@@ -6,12 +6,5 @@
 
 
 int dice::throwDice(int n) {
-    if (n==0)
-        return 0;
-    else{
-    int dice = 0;
-
-    for(int i = 1; i <= n; i++)
-        dice = dice + Util::random(kMin_,kMax_);
-    return dice;}
+    return Util::random(kMin_*n,kMax_*n);
 }
