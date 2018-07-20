@@ -87,7 +87,9 @@ void game::start(){
     initPlayers init;
     player_ = init.returnP_();
     map_.displayMap(player_);
-    cout << "Inserire qualcosa per iniziare: ";
+    cout << "Ridimensiona la finestra in modo da vedere tutta la mappa!";
+    mSleep(3000);
+    cout << endl << "Premi invio per proseguire";
 }
 
 void game::joke1(){

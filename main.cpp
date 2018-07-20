@@ -1,5 +1,6 @@
-#include <iostream>
+
 #include <cstdlib>
+#include <iostream>
 
 #include "Utils/Util.h"
 #include "Deck/Card.h"
@@ -12,26 +13,6 @@
 
 
 int main() {
-
-//    const std::string normal_= "▓";
-//    const std::string one_dice_ = "▒";
-//    const std::string stop_ = "░";
-//    cout << "▓\t" << "▒\t" << "░";
-//    cin.get();
-    game game;
-//    Colors c;
-  Player p;
-//    for(int i = 1; i<=4; i++)
-//        p.setPlayer_(i, to_string(i));
-//    for (int i = 1; i <= 4; i++)
-//        cout << p.getColor(i) << p.getSymbol(i) << c.kStop << endl;
-//    int i;
-//    Effects e = Effects();
-
-    Map m=Map();
-    m.displayMap(p);
-//    Util::clear();
-//    m.displayMap();
-
+    game g;
 	return 0;
 }

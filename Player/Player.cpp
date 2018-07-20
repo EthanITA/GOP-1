@@ -9,17 +9,19 @@ Player::Player(int n){
     Colors c;
     num_Player_ = n;
     for(int i = 4; i > num_Player_; i--)
-        draw += " ";
+        draw += " "; //stringa spazio per i giocatori non presenti
+
+    //colori default per i giocatori
     player_[1].color_ = c.kGreen;
     player_[2].color_ = c.kYellow;
     player_[3].color_ = c.kMagenta;
     player_[4].color_ = c.kCyan;
 
+    //serve per fare lo switch bold
     player_[1].color_no_bold = c.kGreenNoBold;
     player_[2].color_no_bold = c.kYellowNoBold;
     player_[3].color_no_bold = c.kMagentaNoBold;
     player_[4].color_no_bold = c.kCyanNoBold;
-
     for(int i = 1; i<=4; i++)
         player_[i].color_switched_ = player_[i].color_no_bold;
 
@@ -39,10 +41,10 @@ int Player::getSquare_(int Turn){
 
 
 int Player::getDice_(int Turn) {
-    if(player_[Turn].stop_)
+    if(player_[Turn].stop_) //0 dadi
         return 0;
     else
-        return (player_[Turn].two_dice_ + 1);
+        return (player_[Turn].two_dice_ + 1); //two_dice_ è un bool, 1 per due dadi, 0 per 1
 }
 void Player::switchDice_(int Turn) {
     player_[Turn].two_dice_ = !player_[Turn].two_dice_;

@@ -10,19 +10,19 @@
 using namespace std;
 
 initPlayers ::initPlayers(){
-    Player p = Player(inputNumber());
-    p_ = p;
+    Player p = Player(inputNumber()); //chiama il costruttore di player
+    p_ = p; //non era possibile chiamare il costruttore all'interno di initPlayers.h
     for (int i = 1; i <= p_.getNum_player_(); ++i) {
         cout << "Nome del giocatore " << i << ": ";
-        p_.setPlayer_(i, inputName(i));
-        int val = checkSameNickname(p_, i);
+        p_.setPlayer_(i, inputName(i)); //"crea" il giocatore
+        cinClear();
+        int val = checkSameNickname(p_, i); //controllo nome se è identico
         while(val != 0){
             Util::clear();
             cout << "Il nome '"<< p_.getName_(i)<<"' è identico a quello del giocatore " <<val<<", inseriscine un altro: ";
             p_.setPlayer_(i,inputName(i));
             val = checkSameNickname(p_, i);
         }
-        p_.setSquare_(i, 0);
         Util::clear();
     }
 
@@ -33,8 +33,7 @@ int initPlayers::inputNumber(){
     bool flag = true;
     int num;
     while (flag){
-        cin>>num;
-        // [1, 4]
+        cin>>num; //ciclo finchè non è 1 <= num <= 4
         if (num<=4 && num>=1){
             flag = false;
         }
@@ -52,11 +51,10 @@ int initPlayers::inputNumber(){
 std::string initPlayers::inputName(int i){
     string name, tmp;
     cin >> name;
-    if(name.length() > 10){
-        name.resize(10);
+    if(name.length() > 10){ //se la stringa è maggiore di 10
+        name.resize(10); //ridimensione a 10
         Util::clear();
         cout << "Per un'esperienza di gioco migliore, massimo fino a 10 caratteri."<<endl;
-
         retry:
         cout << "Tenere '" << name << "'? ";
         cin >> tmp;
@@ -66,7 +64,6 @@ std::string initPlayers::inputName(int i){
             Util::clear();
         }
         else if (input == "negative"){
-            cinClear();
             Util::clear();
             cout << "Inserire nuovamente il nome del giocatore " << i << ": ";
             name = inputName(i);
@@ -76,7 +73,6 @@ std::string initPlayers::inputName(int i){
             cinClear();
             goto retry;}
     }
-    cinClear();
     return name;
 }
 
@@ -88,7 +84,7 @@ int initPlayers::checkSameNickname(Player p, int key){
     }
     return value; }
 
-Player initPlayers::returnP_() {
+Player initPlayers::returnP_() {//dà la variabile player
     return p_;
 }
 
