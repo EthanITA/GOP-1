@@ -21,7 +21,7 @@ public:
     std::string constructCellString(int resource, int cellNumber);
     void checkForPlayers(int cellnumber, Player p);
     int getDrawACard(int cellNumber);
-};
+    };
 
 
 #endif //GOP_MAP_H

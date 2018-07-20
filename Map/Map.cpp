@@ -24,6 +24,7 @@ Map::Map() {
 
             if(cellNumber%distanceBtwnEffects!=0){
                 cellEffect[cellNumber][1]=0;
+
             }
             else{
                 cellEffect[cellNumber][1]=Util::randomFrom1(nEffects);
@@ -35,7 +36,6 @@ Map::Map() {
             else{
                 drawACard[cellNumber][1]=1;
             }
-//            std::cout<<cellNumber<<" - E: "<<cellEffect[cellNumber][1]<<" P:"<<drawACard[cellNumber][1]<<std::endl;
             cellNumber++;
             j++;
         }
@@ -46,7 +46,6 @@ Map::Map() {
 void Map::displayMap(Player p) {
     int cellNumber=0,j=0,remainingCellsToFill=0;
     Colors c;
-
 
     std::cout<<constructCellString(0,110)<<std::endl;
     for (auto &i : mapMatrix) {
@@ -120,14 +119,10 @@ void Map::displayMap(Player p) {
                 std::cout<<"║"<<std::endl;
                 std::cout<<constructCellString(3,i[j])<<std::endl;
             }
-
             cellNumber++;
             j++;
         }
-
-
         j=0;
-
     }
     std::cout<<constructCellString(2,110)<<std::endl;
     std::cout<<constructCellString(1,110)<<std::endl;
@@ -149,25 +144,18 @@ std::string Map::constructCellString(int resource, int cellNumber){
 
     };
 
-    if(drawACard[cellNumber][1]==1)
-    complete.append("║         │         │         │         │         │         │         │         │         │         ║");
+    if(drawACard[cellNumber][1]==1){
+        complete.append("║         │         │         │         │         │         │         │         │         │         ║");
+    }
 
-    if(resource<10)
+    if(resource<10){
         return stringResources[resource];
+    }
 
 };
 
 void Map::checkForPlayers(int cellNumber, Player p) {
-    std::string finalString;
-    Colors c;
-
-//    for (int i = 0; i < 4; ++i) {
-//        //Cose per controllare se ci sono giocatori in questa cella.
-//        finalString.append("•");
-//    }
-//    std::cout<<c.kMagenta<<finalString<<c.kStop;
     std::cout<<p.getSymbolsForDraw(cellNumber);
-
 }
 
 int Map::getMapDimensions() {
@@ -181,3 +169,4 @@ int Map::getCellEffect(int cellNumber) {
 int Map::getDrawACard(int cellNumber) {
     return drawACard[cellNumber][1];
 }
+

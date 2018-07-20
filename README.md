@@ -1,6 +1,12 @@
 # Game of the Goose (Gioco dell'Oca Pazza)
+
 2018 UniBo Computer Science - Programming 
-## HOW TO
+
+## About
+
+This game is a simple implementation of the Game of the Goose for the programming class, the requirments can be found [here](Relazione/Resources/progetto-GOP.pdf) (italian). 
+
+## How to
 **LINUX**
 
 Requirements:
@@ -15,7 +21,6 @@ Compile and run
     cmake .
     make
     ./GOP
-
 
 by  
 [@vecr25](https://github.com/vecr25)

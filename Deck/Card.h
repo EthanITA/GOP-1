@@ -9,7 +9,6 @@ private:
     int number,effectNumber;
 
 public:
-//    Card(int number, int effectNumber);
     int getNumber();
     int getEffectNumber();
     void setNumber(int number);

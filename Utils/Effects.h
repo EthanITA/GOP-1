@@ -8,7 +8,6 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "Util.h"
 
 
 class Effects {
@@ -29,7 +28,7 @@ private:
     };
     std:: string effect_of_square_;
 public:
-    std::string getEffects(int effectNumber);
+    std::string getEffects(int efffectNumber);
     static void executeAction(int effectNumber);
     static int numberOfEffects();
 };

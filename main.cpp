@@ -1,6 +1,5 @@
-
-#include <cstdlib>
 #include <iostream>
+#include <cstdlib>
 
 #include "Utils/Util.h"
 #include "Deck/Card.h"

@@ -19,7 +19,7 @@ public:
     Deck(int numberOfCards);
     int getCard();
     int getEffectFromCardNumber (int cardNumber);
-    void executeAction (int cardNumber);
+    void  executeAction (int cardNumber);
 };
 
 
