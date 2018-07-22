@@ -2,19 +2,14 @@
 // Created by vecr on 05/05/18.
 //
 #include "Effects.h"
-#include "Util.h"
 #include <string>
 #include <iostream>
 
 
 
 //Given an INT with the code of the instruction returns a string with the effect
-std::string Effects::getEffects(int effectNumber) {
-    if(effects_of_cards_[effectNumber].random) //serve random
-        return effects_of_cards_[effectNumber].effect +
-                std::to_string(Util::random(effects_of_cards_[effectNumber].random_start,
-                                            effects_of_cards_[effectNumber].random_end));
-    return effects_of_cards_[effectNumber].effect; //non serve random
+std::string Effects::getEffectsStringFromNumber(int efffectNumber) {
+    return effects[efffectNumber];
 }
 
 
@@ -35,5 +30,5 @@ void Effects::executeAction(int effectNumber){
 
 
 int Effects::numberOfEffects(){
-    return sizeof( effects_of_cards_ ) / sizeof( effects_of_cards_[ 0 ] )-1;
+    return sizeof( effects ) / sizeof( effects[ 0 ] )-1;
 }

@@ -6,21 +6,23 @@
 #include <iostream>
 #include "../Utils/Effects.h"
 
-std::vector<Card> Deck::cards((unsigned long)Effects::numberOfEffects());
+std::vector<Card> Deck::cards(80);
 
-Deck::Deck(int numberOfCards) {
+Deck::Deck() {
     int i;
+    numberOfCards=cards.size();
     noOfEffects=Effects::numberOfEffects();
     Effects e = Effects();
 
 //Creating DECK
-    for(i=1;i<=numberOfCards;i++){
-       cards.at(i).setEverything(i,Util::random(0,noOfEffects));
+    for(i=0;i<numberOfCards;i++){
+       cards.at(i).setEverything(i,Util::random(1,noOfEffects));
     }
-
-    for(i=1;i<=numberOfCards;i++){
-        std::cout<<"Number "<<cards.at(i).getNumber()<<" Effect "<<cards.at(i).getEffectNumber()<<" "<<e.getEffects(cards.at(i).getEffectNumber())<<std::endl;
-    }
+//
+//    for(i=0;i<numberOfCards;i++){
+//        std::cout<<"Number "<<cards.at(i).getNumber()<<" Effect "<<cards.at(i).getEffectNumber()<<" "<< e.getEffectsStringFromNumber(
+//                cards.at(i).getEffectNumber())<<std::endl;
+//    }
 }
 
 
@@ -36,4 +38,10 @@ int Deck::getEffectFromCardNumber(int cardNumber) {
 void Deck::executeAction(int cardNumber) {
     int effectNumber=getEffectFromCardNumber(cardNumber);
     Effects::executeAction(effectNumber);
+}
+
+std::string Deck::getEffectString(int cardNumber) {
+    Effects e=Effects();
+    int effectNumber=getEffectFromCardNumber(cardNumber);
+    return e.getEffectsStringFromNumber(effectNumber);
 }

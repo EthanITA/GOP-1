@@ -13,13 +13,15 @@
 
 class Deck {
 private:
+    unsigned long numberOfCards;
     static std::vector<Card> cards;
     int noOfEffects;
 public:
-    Deck(int numberOfCards);
+    Deck();
     int getCard();
     int getEffectFromCardNumber (int cardNumber);
-    void  executeAction (int cardNumber);
+    void executeAction (int cardNumber);
+    std::string getEffectString (int cardNumber);
 };
 
 
