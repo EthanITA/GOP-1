@@ -22,7 +22,6 @@ private:
             "Gioco con 1 dado per X turni a seconda di quanto esce sul dado"};
 public:
     std::string getEffectsStringFromNumber(int stringNumber);
-    Player executeAction(Player p, int playerNumber, int effectNumber);
     static int numberOfEffects();
 };
 

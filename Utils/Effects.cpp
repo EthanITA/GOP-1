@@ -12,12 +12,6 @@ std::string Effects::getEffectsStringFromNumber(int stringNumber) {
     return effects[stringNumber];
 }
 
-
-Player Effects::executeAction(Player p,int playerNumber, int effectNumber){
-
-}
-
-
 int Effects::numberOfEffects(){
     return sizeof( effects ) / sizeof( effects[ 0 ] )-1;
 }

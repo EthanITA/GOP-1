@@ -40,6 +40,8 @@ public:
     void setCard(int cardNumber, int Turn);
     int getCard(int Turn);
 
+    void setTurnsStopped(int turnsStopped, int Turn);
+    int getTurnsStopped(int Turn);
 private:
     struct symbols{
         const std::string normal_= "▓";
@@ -57,6 +59,7 @@ private:
         std::string color_no_bold;
         std::string color_switched_;
         int card;
+        int turnsStopped;
 
     };
 

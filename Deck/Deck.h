@@ -10,6 +10,7 @@
 #include "../Utils/Util.h"
 #include "../Utils/Effects.h"
 #include "../Player/Player.h"
+#include "../Dice/Dice.h"
 #include <vector>
 
 class Deck {
@@ -17,6 +18,7 @@ private:
     int numberOfCards, playerNumber;
     Effects e;
     Player p;
+    dice d;
     static std::vector<Card> cards;
     int noOfEffects;
     Player executeAction(int effectNumber);

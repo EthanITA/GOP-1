@@ -110,3 +110,11 @@ int Player::getCard(int Turn) {
     return player_[Turn].card;
 }
 
+void Player::setTurnsStopped(int turnsStopped, int Turn) {
+    player_[Turn].turnsStopped=turnsStopped;
+}
+
+int Player::getTurnsStopped(int Turn) {
+    return player_[Turn].turnsStopped;
+}
+
