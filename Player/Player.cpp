@@ -32,9 +32,15 @@ int Player::getNum_player_(){
     return num_Player_;
 }
 
-void Player::setSquare_(int turn, int square) {
-    player_[turn].square_ += square;
+void Player::addSquare_(int Turn, int Square) {
+    player_[Turn].square_ +=Square;
 }
+void Player::setSquare_(int Turn, int Square) {
+    player_[Turn].square_ = Square;
+}
+
+
+
 int Player::getSquare_(int Turn){
     return player_[Turn].square_;
 }
@@ -80,7 +86,7 @@ std::string Player::getSymbol(int Turn) {
 }
 
 
-std::string Player::getSymbolsForDraw(int Square) {
+std::string Player::drawPlayersForMap(int Square) {
     Colors c;
     std::string ret = draw;
     for (int i = 1; i<= getNum_player_(); i++){
@@ -110,11 +116,11 @@ int Player::getCard(int Turn) {
     return player_[Turn].card;
 }
 
-void Player::setTurnsStopped(int turnsStopped, int Turn) {
-    player_[Turn].turnsStopped=turnsStopped;
+void Player::setTurnsOneDice(int turnsStopped, int Turn) {
+    player_[Turn].turns_one_dice_=turnsStopped;
 }
 
-int Player::getTurnsStopped(int Turn) {
-    return player_[Turn].turnsStopped;
+int Player::getTurnsOneDice(int Turn) {
+    return player_[Turn].turns_one_dice_;
 }
 

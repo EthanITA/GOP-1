@@ -14,7 +14,7 @@ game::game(){
         dice = dice_.throwDice(player_.getDice_(i));
         player_.switchBold(i);
         for(int j = 1; j <= dice && winner == 0; j++){
-            player_.setSquare_(i, 1);
+            player_.addSquare_(i, 1);
             if (player_.getSquare_(i) == map_.getMapDimensions())
                 winner = i;
             Util::clear();
@@ -28,15 +28,22 @@ game::game(){
             map_.displayMap(player_);
         }
 
+        if(map_.getCellEffect(player_.getSquare_(i)) != 0){
+            player_ = deck_.executeCellAction(player_, i, map_.getCellEffect(player_.getSquare_(i)));}
+        if(map_.getDrawACard(player_.getSquare_(i)) != 0){
+            player_ = deck_.executeCardAction(player_, i);}
+
+
         cout << "\t\t\t\t" << player_.getColor(i) << player_.getName_(i) << color_.kStop << " è avanzato di " << color_.kWhite
              << step << color_.kStop << " caselle!" << endl;
         player_.switchBold(i);
+        map_.displayMap(player_);
 //        if(map_.getMapDimensions() <= (dice + player_.getSquare_(i))){
-//            player_.setSquare_(i, map_.getMapDimensions()) ;
+//            player_.addSquare_(i, map_.getMapDimensions()) ;
 //            winner = i;
 //        }
 //        else
-//            player_.setSquare_(i, dice);
+//            player_.addSquare_(i, dice);
 //        map_.displayMap(player_);
     }
     player_.switchBold(winner);

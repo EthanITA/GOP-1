@@ -155,7 +155,7 @@ std::string Map::constructCellString(int resource, int cellNumber){
 };
 
 void Map::checkForPlayers(int cellNumber, Player p) {
-    std::cout<<p.getSymbolsForDraw(cellNumber);
+    std::cout<< p.drawPlayersForMap(cellNumber);
 }
 
 int Map::getMapDimensions() {

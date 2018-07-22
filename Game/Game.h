@@ -23,6 +23,7 @@ private:
     Colors color_;
     dice dice_;
     Map map_;
+    Deck deck_;
 
     void welcome();
     void vincoli();

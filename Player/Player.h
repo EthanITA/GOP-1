@@ -19,8 +19,8 @@ public:
     int getNum_player_();
 
     int getSquare_(int Turn);
-    void setSquare_(int Turn, int Square);
-
+    void addSquare_(int Turn, int Square);
+    void setSquare_ (int Turn, int Square);
     int getDice_(int Turn);
     void switchDice_(int Turn);
 
@@ -32,7 +32,7 @@ public:
     std::string getColor(int Turn);
     std::string getSymbol(int Turn);
 
-    std::string getSymbolsForDraw(int Square);
+    std::string drawPlayersForMap(int Square);
 
     void switchBold(int Turn);
 
@@ -40,8 +40,8 @@ public:
     void setCard(int cardNumber, int Turn);
     int getCard(int Turn);
 
-    void setTurnsStopped(int turnsStopped, int Turn);
-    int getTurnsStopped(int Turn);
+    void setTurnsOneDice(int turnsStopped, int Turn);
+    int getTurnsOneDice(int Turn);
 private:
     struct symbols{
         const std::string normal_= "▓";
@@ -59,13 +59,13 @@ private:
         std::string color_no_bold;
         std::string color_switched_;
         int card;
-        int turnsStopped;
+        int turns_one_dice_;
 
     };
 
     bool color_bold_ = true;
     std::map<int,type> player_;
-    int num_Player_, card;
+    int num_Player_;
     std::string draw = "";
 };
 

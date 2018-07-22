@@ -21,7 +21,7 @@ private:
     dice d;
     static std::vector<Card> cards;
     int noOfEffects;
-    Player executeAction(int effectNumber);
+    Player executeAction(Player p,int effectNumber);
 public:
     Deck();
     int getCard();

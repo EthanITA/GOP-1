@@ -14,6 +14,7 @@
 int main() {
 
 //    cout<<"Number of effects "<<Effects::numberOfEffects()<<std::endl;
+    game g;
     Deck d=Deck();
 //    int card=d.getCard();
 //    std::cout<<"Effetto n "<<card<<" effetto cose "<<d.getEffectString(card)<<std::endl;
