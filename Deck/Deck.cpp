@@ -16,8 +16,8 @@ Deck::Deck() {
 
 //Creating DECK
     for(i=0;i<numberOfCards;i++){
-       cards.at(i).setEverything(i,Util::random(1,noOfEffects));
-//        cards.at(i).setEverything(i,6);
+//       cards.at(i).setEverything(i,Util::random(1,noOfEffects));
+        cards.at(i).setEverything(i,7);
     }
 
 //    for(i=0;i<numberOfCards;i++){
@@ -107,7 +107,18 @@ Player Deck::executeAction(int effectNumber) { //Private method
         }
 
         case 7: {// "Scambia la posizione con un altro giocatore"
+            int squarePlayerWithEffect, squareOtherPlayer, otherPlayerNumber=Util::randomFrom0(p.getNum_player_()-1);
             std::cout<<"\n"<<e.getEffectsStringFromNumber(7)<<std::endl;
+            if(p.getNum_player_()!=1){
+                squarePlayerWithEffect=p.getSquare_(playerNumber);
+                squareOtherPlayer=p.getSquare_(otherPlayerNumber);
+                p.setSquare_(playerNumber,squareOtherPlayer);
+                p.setSquare_(otherPlayerNumber,squarePlayerWithEffect);
+                std::cout<<"\n"<<p.getName_(playerNumber)<<" si è cambiato di posizione con "<<p.getName_(otherPlayerNumber)<<"!"<<std::endl;
+            }
+            else{
+                std::cout<<"Questo effetto non funziona con un solo giocatore."<<std::endl;
+            }
             break;
         }
 
@@ -119,6 +130,8 @@ Player Deck::executeAction(int effectNumber) { //Private method
 
         case 9: {// "Gioco con 1 dado per X turni a seconda di quanto esce sul dado"
             std::cout<<"\n"<<e.getEffectsStringFromNumber(9)<<std::endl;
+            p.setTurnsStopped(d.throwDice(p.getDice_(playerNumber)),playerNumber);
+            p.switchStop_(playerNumber);
             break;
         }
 
@@ -130,9 +143,3 @@ Player Deck::executeAction(int effectNumber) { //Private method
     }
     return p;
 }
-
-//std::string Deck::getEffectString(int cardNumber) {
-//    Effects e=Effects();
-//    int effectNumber=getEffectFromCardNumber(cardNumber);
-//    return e.getEffectsStringFromNumber(effectNumber);
-//}

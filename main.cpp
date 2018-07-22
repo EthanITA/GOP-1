@@ -25,6 +25,6 @@ int main() {
         p.setCard(10,0);
         p=d.executeCardAction(p,0);
 
-        cout<<"Dice "<<p.getSquare_(0)<<std::endl;
+     //   cout<<"Dice "<<p.getNum_player_()<<std::endl;
 	return 0;
 }

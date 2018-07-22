@@ -28,7 +28,6 @@ public:
     int getEffectFromCardNumber (int cardNumber);
     Player executeCardAction (Player p, int playerNumber);
     Player executeCellAction (Player p, int playerNumber, int effectNumber);
-    std::string getEffectString (int cardNumber);
 };
 
 
