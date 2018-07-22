@@ -8,15 +8,15 @@
 
 
 //Given an INT with the code of the instruction returns a string with the effect
-std::string Effects::getEffectsStringFromNumber(int efffectNumber) {
-    return effects[efffectNumber];
+std::string Effects::getEffectsStringFromNumber(int stringNumber) {
+    return effects[stringNumber];
 }
 
 
 void Effects::executeAction(int effectNumber){
-    //TODO Implementaione degli effetti dopo che si è implementata la mappa
     switch (effectNumber) {
-        case (1): {
+        case (1): { //"Pesca una carta"
+            std::cout<<this->getEffectsStringFromNumber(1)<<std::endl;
             std::cout<<"EFFETTO 1"<<std::endl;
         }
         case (2): {

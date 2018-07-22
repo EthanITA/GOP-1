@@ -13,7 +13,8 @@
 
 class Deck {
 private:
-    unsigned long numberOfCards;
+    int numberOfCards;
+    Effects e;
     static std::vector<Card> cards;
     int noOfEffects;
 public:

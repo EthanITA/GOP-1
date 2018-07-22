@@ -10,9 +10,10 @@ std::vector<Card> Deck::cards(80);
 
 Deck::Deck() {
     int i;
-    numberOfCards=cards.size();
-    noOfEffects=Effects::numberOfEffects();
-    Effects e = Effects();
+    numberOfCards=(int)cards.size();
+    e = Effects();
+    noOfEffects=e.numberOfEffects();
+
 
 //Creating DECK
     for(i=0;i<numberOfCards;i++){
@@ -37,7 +38,7 @@ int Deck::getEffectFromCardNumber(int cardNumber) {
 
 void Deck::executeAction(int cardNumber) {
     int effectNumber=getEffectFromCardNumber(cardNumber);
-    Effects::executeAction(effectNumber);
+    e.executeAction(effectNumber);
 }
 
 std::string Deck::getEffectString(int cardNumber) {

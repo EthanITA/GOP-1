@@ -19,8 +19,8 @@ private:
             "Scambia la posizione con un altro giocatore","Fermo un turno",
             "Gioco con 1 dado per X turni a seconda di quanto esce sul dado"};
 public:
-    std::string getEffects(int efffectNumber);
-    static void executeAction(int effectNumber);
+    std::string getEffectsStringFromNumber(int stringNumber);
+    void executeAction(int effectNumber);
     static int numberOfEffects();
 };
 
