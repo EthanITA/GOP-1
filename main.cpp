@@ -17,5 +17,14 @@ int main() {
     Deck d=Deck();
 //    int card=d.getCard();
 //    std::cout<<"Effetto n "<<card<<" effetto cose "<<d.getEffectString(card)<<std::endl;
+
+        Player p(2);
+        p.setPlayer_(0,"Giocatore 1");
+        p.setPlayer_(1,"Giocatore 2");
+
+        p.setCard(10,0);
+        p=d.executeCardAction(p,0);
+
+        cout<<"card "<<p.getCard(0)<<std::endl;
 	return 0;
 }

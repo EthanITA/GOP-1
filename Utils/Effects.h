@@ -7,11 +7,13 @@
 
 #include <string>
 #include <vector>
+#include "../Player/Player.h"
+
 
 
 class Effects {
 private:
-    std::string effects[10] ={
+     std::string effects[10] ={
             "NONE","Pesca una carta",
             "Fai un altro lancio",
             "Vai avanti di 1","Vai indietro di 1",
@@ -20,7 +22,7 @@ private:
             "Gioco con 1 dado per X turni a seconda di quanto esce sul dado"};
 public:
     std::string getEffectsStringFromNumber(int stringNumber);
-    void executeAction(int effectNumber);
+    Player executeAction(Player p, int playerNumber, int effectNumber);
     static int numberOfEffects();
 };
 

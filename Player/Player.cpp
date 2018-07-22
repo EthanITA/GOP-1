@@ -101,3 +101,12 @@ void Player::switchBold(int a){
 
     color_bold_ = !color_bold_;
     }
+
+void Player::setCard(int cardNumber, int Turn) {
+    player_[Turn].card=cardNumber;
+}
+
+int Player::getCard(int Turn) {
+    return player_[Turn].card;
+}
+

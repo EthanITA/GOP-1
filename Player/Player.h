@@ -36,6 +36,10 @@ public:
 
     void switchBold(int Turn);
 
+
+    void setCard(int cardNumber, int Turn);
+    int getCard(int Turn);
+
 private:
     struct symbols{
         const std::string normal_= "▓";
@@ -52,11 +56,13 @@ private:
         std::string color_;
         std::string color_no_bold;
         std::string color_switched_;
+        int card;
+
     };
 
     bool color_bold_ = true;
     std::map<int,type> player_;
-    int num_Player_;
+    int num_Player_, card;
     std::string draw = "";
 };
 

@@ -13,19 +13,8 @@ std::string Effects::getEffectsStringFromNumber(int stringNumber) {
 }
 
 
-void Effects::executeAction(int effectNumber){
-    switch (effectNumber) {
-        case (1): { //"Pesca una carta"
-            std::cout<<this->getEffectsStringFromNumber(1)<<std::endl;
-            std::cout<<"EFFETTO 1"<<std::endl;
-        }
-        case (2): {
-            std::cout<<"EFFETTO 2"<<std::endl;
-        }
-        default:{
-            std::cout<<"ERROR ACTION NOT FOUND!"<<std::endl;
-        }
-    }
+Player Effects::executeAction(Player p,int playerNumber, int effectNumber){
+
 }
 
 
