@@ -165,6 +165,7 @@ Player Deck::executeAction(int effectNumber) { //Private method used to execute 
             std::cout<<e.getEffectsStringFromNumber(9)<<std::endl;
             p.setTurnsOneDice(1, playerNumber);
             p.switchDice_(playerNumber);
+            break;
         }
 
 
