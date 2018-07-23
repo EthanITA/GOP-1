@@ -5,46 +5,40 @@
 #include "Game.h"
 #include <iostream>
 game::game(){
-    int winner = 0, dice, step;
+    int winner = 0, dice, step, player_number = 1;
     welcome();
-    for (int i = 1; player_.getSquare_(i) < map_.getMapDimensions() && winner == 0; i++){
+    while (player_.getSquare_(player_number) < map_.getMapDimensions() && winner == 0){
         cinClear();
-        if (i == (player_.getNum_player_() + 1))
-            i = 1;
-        dice = dice_.throwDice(player_.getDice_(i));
-        player_.switchBold(i);
+        if (player_number == (player_.getNum_player_() + 1)) //ricomincia il ciclo 1 - numeri di gioc
+            player_number = 1;
+
+        dice = dice_.throwDice(player_.getDice_(player_number));
+        player_.switchBold(player_number); //colore bold
+
         for(int j = 1; j <= dice && winner == 0; j++){
-            player_.addSquare_(i, 1);
-            if (player_.getSquare_(i) == map_.getMapDimensions())
-                winner = i;
-            Util::clear();
-            map_.displayMap(player_);
+            player_.addSquare_(player_number, 1);
+            if (player_.getSquare_(player_number) == map_.getMapDimensions())
+                winner = player_number;
+            updateMap();
             mSleep(350);
             step = j;
         }
         if(dice == 0){
             step = 0;
-            Util::clear();
-            map_.displayMap(player_);
+            updateMap();
         }
-
-        if(map_.getCellEffect(player_.getSquare_(i)) != 0){
-            player_ = deck_.executeCellAction(player_, i, map_.getCellEffect(player_.getSquare_(i)));}
-        if(map_.getDrawACard(player_.getSquare_(i)) != 0){
-            player_ = deck_.executeCardAction(player_, i);}
-
-
-        cout << "\t\t\t\t" << player_.getColor(i) << player_.getName_(i) << color_.kStop << " è avanzato di " << color_.kWhite
+        cout << "\t\t\t\t" << player_.getColor(player_number) << player_.getName_(player_number) << color_.kStop << " è avanzato di " << color_.kWhite
              << step << color_.kStop << " caselle!" << endl;
-        player_.switchBold(i);
-        map_.displayMap(player_);
-//        if(map_.getMapDimensions() <= (dice + player_.getSquare_(i))){
-//            player_.addSquare_(i, map_.getMapDimensions()) ;
-//            winner = i;
-//        }
-//        else
-//            player_.addSquare_(i, dice);
-//        map_.displayMap(player_);
+
+        checkSquare(player_number);
+
+        cout << "\n\n";
+
+
+        player_.switchBold(player_number);
+
+
+        player_number++;
     }
     player_.switchBold(winner);
     cout << color_.kWhite << "\n\n\t\t\t\tBravo " << player_.getColor(winner) << player_.getName_(winner)
@@ -93,25 +87,35 @@ void game::start(){
 //    Deck deck(20); TODO
     initPlayers init;
     player_ = init.returnP_();
-    map_.displayMap(player_);
+    updateMap();
     cout << "Ridimensiona la finestra in modo da vedere tutta la mappa!";
     mSleep(3000);
     cout << endl << "Premi invio per proseguire";
 }
 
-void game::joke1(){
-    std::string abc;
-    cin >> abc;
-    if (inputCheck(abc) == "negative"){
-        for (int i = 0; i < 3; ++i) {
-            if (i == 0)
-                cout << "\tHA";
-            else
-                cout << "-HA";
-            mSleep(850);
-        }
+void game::checkSquare(int n_pl) {
+if(!player_.getStop_(n_pl)){
+    if(map_.getCellEffect(player_.getSquare_(n_pl)) != 0){ //se c'è un effetto cella
+        cout << endl << "Effetto casella! -> ";
+        player_ = deck_.executeCellAction(player_, n_pl,
+                                          map_.getCellEffect(player_.getSquare_(n_pl)));
+        mapWaitEffect();
     }
-    else
-        cout << "\tPerfetto!" ;
-    cout << endl;
+
+    if(map_.getDrawACard(player_.getSquare_(n_pl)) != 0){//se c'è pesca carta
+        cout << endl << "Effetto carta! -> ";
+        player_ = deck_.executeCardAction(player_, n_pl);
+        mapWaitEffect();
+    }}
+}
+
+void game::mapWaitEffect(){
+    cout << endl << "Premi invio per confermare!\n";
+    cinClear();
+    updateMap();
+}
+
+void game::updateMap(){
+    Util::clear();
+    map_.displayMap(player_);
 }

@@ -18,18 +18,20 @@ using namespace std;
 class game {
 public:
     game();
-private:
+
+protected:
     Player player_;
     Colors color_;
     dice dice_;
     Map map_;
     Deck deck_;
-
     void welcome();
     void vincoli();
     void caratteristica();
-    void joke1();
     void start();
+    void checkSquare(int);
+    void mapWaitEffect();
+    void updateMap();
 };
 
 

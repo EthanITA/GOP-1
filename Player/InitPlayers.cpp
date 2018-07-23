@@ -13,6 +13,7 @@ initPlayers ::initPlayers(){
     Player p = Player(inputNumber()); //chiama il costruttore di player
     p_ = p; //non era possibile chiamare il costruttore all'interno di initPlayers.h
     for (int i = 1; i <= p_.getNum_player_(); ++i) {
+        Util::clear();
         cout << "Nome del giocatore " << i << ": ";
         p_.setPlayer_(i, inputName(i)); //"crea" il giocatore
         cinClear();
@@ -23,7 +24,6 @@ initPlayers ::initPlayers(){
             p_.setPlayer_(i,inputName(i));
             val = checkSameNickname(p_, i);
         }
-        Util::clear();
     }
 
 }

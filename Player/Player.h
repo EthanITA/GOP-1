@@ -46,9 +46,9 @@ public:
     int getTurnsStopped(int Turn);
 private:
     struct symbols{
-        const std::string normal_= "▓";
-        const std::string one_dice_ = "▒";
-        const std::string stop_ = "░";
+        const std::string normal_= "█";
+        const std::string one_dice_ = "▌";
+        const std::string stop_ = "▬";
     };
 
     struct type{
