@@ -45,7 +45,7 @@ protected:
 
 private:
     bool local_stop_[5];
-    bool local_dice_[5];
+    int local_dice_[5];
 };
 
 

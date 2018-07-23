@@ -136,9 +136,9 @@ void game::executeCard(int n_pl) {
     player_ = deck_.executeCardAction(player_, n_pl);
     mapWaitEffect();
     if(player_.getDice_(n_pl) == 1)
-        local_dice_[n_pl] = 0;
-    else if(player_.getStop_(n_pl))
-        local_stop_[n_pl] = 0;
+        local_dice_[n_pl] = 1;
+    if(player_.getStop_(n_pl))
+        local_stop_[n_pl] = true;
 }
 
 void game::executeCell(int n_pl) {
@@ -148,18 +148,19 @@ void game::executeCell(int n_pl) {
                                       map_.getCellEffect(player_.getSquare_(n_pl)));
     mapWaitEffect();
     if(player_.getDice_(n_pl) == 1)
-        local_dice_[n_pl] = 0;
-    else if(player_.getStop_(n_pl))
-        local_stop_[n_pl] = 0;
+        local_dice_[n_pl] = 1;
+    if(player_.getStop_(n_pl))
+        local_stop_[n_pl] = true;
 }
 
 void game::checkAndRemoveDebuff(int player_number){
-    if(local_dice_[player_number] == 0)
-        local_dice_[player_number] = 1;
-    else if(player_.getDice_(player_number) == 1)
+    if(local_dice_[player_number] == 1)
+        local_dice_[player_number] = 2;
+    else if (player_.getDice_(player_number) == 1)
         player_.switchDice_(player_number);
-    if(local_stop_[player_number] == 0)
-        local_stop_[player_number] = 1;
+
+    if(local_stop_[player_number])
+        local_stop_[player_number] = false;
     else if(player_.getStop_(player_number)) {
         player_.switchStop_(player_number);
     }
