@@ -1,0 +1,1 @@
+Il binario è stato compilato per essere eseguito su una macchina con S.O. Linux.

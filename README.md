@@ -18,7 +18,9 @@ Compile and run
 
     git clone https://github.com/vecr25/GOP.git
     cd GOP
-    cmake .
+    mkdir build
+    cd build
+    cmake ..
     make
     ./GOP
 
