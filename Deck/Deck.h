@@ -21,6 +21,7 @@ private:
     Effects e;
     Player p;
     dice d;
+    Colors c;
     static std::vector<Card> cards;
     Player executeAction(int effectNumber);
 public:
@@ -29,6 +30,7 @@ public:
     int getEffectFromCardNumber (int cardNumber);
     Player executeCardAction (Player p, int playerNumber);
     Player executeCellAction (Player p, int playerNumber, int effectNumber);
+    void stepsMessage(int playerNumber, int step);
 };
 
 

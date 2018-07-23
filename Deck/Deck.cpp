@@ -14,7 +14,6 @@ Deck::Deck() {
     for(i=0;i<numberOfCards;i++){
        cards.at(i).setEverything(i,Util::random(1,noOfEffects));
     }
-
 //    USED FOR DEBUG
 //    for(i=0;i<numberOfCards;i++){
 //        std::cout<<"Number "<<cards.at(i).getNumber()<<" Effect "<<cards.at(i).getEffectNumber()<<" "<< e.getEffectsStringFromNumber(
@@ -56,14 +55,17 @@ Player Deck::executeAction(int effectNumber) { //Private method
         }
 
         case 2: {//"Fai un altro lancio"
+            int dice=d.throwDice(p.getDice_(playerNumber));
             std::cout<<e.getEffectsStringFromNumber(2)<<std::endl;
-            p.addSquare_(playerNumber, d.throwDice(p.getDice_(playerNumber)));
+            p.addSquare_(playerNumber, dice);
+            stepsMessage(playerNumber,dice);
             break;
         }
 
         case 3: {// "Vai avanti di 1"
             std::cout<<e.getEffectsStringFromNumber(3)<<std::endl;
             p.addSquare_(playerNumber, 1);
+            stepsMessage(playerNumber,1);
             break;
         }
 
@@ -71,21 +73,32 @@ Player Deck::executeAction(int effectNumber) { //Private method
             std::cout<<e.getEffectsStringFromNumber(4)<<std::endl;
             if(p.getSquare_(playerNumber) != 0)
                 p.addSquare_(playerNumber, -1);
+
+            stepsMessage(playerNumber,-1);
             break;
         }
 
         case 5: {// "Avanti a seconda di quanto esce sul dado"
             std::cout<<e.getEffectsStringFromNumber(5)<<std::endl;
-            p.addSquare_(playerNumber, d.throwDice(1));
+            int dice=d.throwDice(1);
+            p.addSquare_(playerNumber, dice);
+            stepsMessage(playerNumber,dice);
             break;
         }
 
         case 6: {// "Indietro a seconda di quanto esce sul dado"
             std::cout<<e.getEffectsStringFromNumber(6)<<std::endl;
-            int dice = d.throwDice(1);
+            int dice = d.throwDice(1),squares=p.getSquare_(playerNumber);
             p.addSquare_(playerNumber, -dice);
-            if(p.getSquare_(playerNumber) < 0)
+
+            if(p.getSquare_(playerNumber) < 0){
                 p.addSquare_(playerNumber, 0);
+                squares*=-1;
+            } else{
+                squares=-dice;
+            }
+
+            stepsMessage(playerNumber, squares);
             break;
         }
 
@@ -119,7 +132,7 @@ Player Deck::executeAction(int effectNumber) { //Private method
                 p.setSquare_(otherPlayerNumber, temp);
 
 
-                Colors c;
+
 
                 p.switchBold(otherPlayerNumber);
                 std::cout<< p.getColor(playerNumber)<<p.getName_(playerNumber)
@@ -150,7 +163,7 @@ Player Deck::executeAction(int effectNumber) { //Private method
 //        }
 
         case 9:{// "Gioco con un dado per un turno"
-            std::cout<<e.getEffectsStringFromNumber(10)<<std::endl;
+            std::cout<<e.getEffectsStringFromNumber(9)<<std::endl;
             p.setTurnsOneDice(1, playerNumber);
             p.switchDice_(playerNumber);
         }
@@ -162,4 +175,9 @@ Player Deck::executeAction(int effectNumber) { //Private method
         }
     }
     return p;
+}
+
+void Deck::stepsMessage(int playerNumber, int step) {
+    std::cout << "\t\t\t\t" << p.getColor(playerNumber) << p.getName_(playerNumber) << c.kStop << " è avanzato di " << c.kWhite
+         << step << c.kStop << " caselle!" << std::endl;
 }
