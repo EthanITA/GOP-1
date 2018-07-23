@@ -5,10 +5,11 @@
 #include "Game.h"
 #include <iostream>
 game::game(){
+    Util::clear();
     int winner = 0, step, player_number = 1;
     welcome();
 
-    while (noWinner(player_number)){//ciclo del gioco
+    while (noWinner(player_number, winner)){//ciclo del gioco
         cinClear();
         redoLoopCondition(player_number);
         player_.switchBold(player_number); //colore bold
@@ -17,6 +18,8 @@ game::game(){
         if(!winner)
             checkSquare(player_number);
         player_.switchBold(player_number);
+        checkAndRemoveDebuff(player_number);
+
         player_number++;
     }
 
@@ -125,7 +128,7 @@ void game::stepsMessage(int player_number, int step) {
 
 void game::winMessage(int winner) {
     cout << color_.kWhite << "\n\n\t\t\t\tBravo " << player_.getColor(winner) << player_.getName_(winner)
-         << color_.kStop << color_.kWhite << " hai vinto!" << color_.kStop;}
+         << color_.kWhite << " hai vinto!";}
 
 void game::executeCard(int n_pl) {
     cout << endl << "Effetto carta! -> ";
@@ -142,9 +145,15 @@ void game::executeCell(int n_pl) {
     mapWaitEffect();
 }
 
+void game::checkAndRemoveDebuff(int player_number){
+    if(player_.getStop_(player_number))
+        player_.switchStop_(player_number);
+    if(player_.getDice_(player_number))
+        player_.switchDice_(player_number);
+}
 
-bool game::noWinner(int n_pl){
-    return player_.getSquare_(n_pl) < map_.getMapDimensions();
+bool game::noWinner(int n_pl, int winner){
+    return player_.getSquare_(n_pl) < map_.getMapDimensions() && winner == 0;
 }
 bool game::cellEffect(int n_pl){
     return map_.getCellEffect(player_.getSquare_(n_pl)) != 0;

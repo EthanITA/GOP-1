@@ -38,7 +38,8 @@ protected:
     void stepsMessage(int, int);
     void executeCell(int);
     void executeCard(int);
-    bool noWinner(int);
+    void checkAndRemoveDebuff(int);
+    bool noWinner(int, int);
     bool cellEffect(int);
     bool drawACard(int);
 
