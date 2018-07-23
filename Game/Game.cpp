@@ -5,44 +5,23 @@
 #include "Game.h"
 #include <iostream>
 game::game(){
-    int winner = 0, dice, step, player_number = 1;
+    int winner = 0, step, player_number = 1;
     welcome();
-    while (player_.getSquare_(player_number) < map_.getMapDimensions() && winner == 0){
+
+    while (noWinner(player_number)){//ciclo del gioco
         cinClear();
-        if (player_number == (player_.getNum_player_() + 1)) //ricomincia il ciclo 1 - numeri di gioc
-            player_number = 1;
-
-        dice = dice_.throwDice(player_.getDice_(player_number));
+        redoLoopCondition(player_number);
         player_.switchBold(player_number); //colore bold
-
-        for(int j = 1; j <= dice && winner == 0; j++){
-            player_.addSquare_(player_number, 1);
-            if (player_.getSquare_(player_number) == map_.getMapDimensions())
-                winner = player_number;
-            updateMap();
-            mSleep(350);
-            step = j;
-        }
-        if(dice == 0){
-            step = 0;
-            updateMap();
-        }
-        cout << "\t\t\t\t" << player_.getColor(player_number) << player_.getName_(player_number) << color_.kStop << " è avanzato di " << color_.kWhite
-             << step << color_.kStop << " caselle!" << endl;
-
-        checkSquare(player_number);
-
-        cout << "\n\n";
-
-
+        animationSteps(winner, step, player_number);
+        stepsMessage(player_number, step);
+        if(!winner)
+            checkSquare(player_number);
         player_.switchBold(player_number);
-
-
         player_number++;
     }
+
     player_.switchBold(winner);
-    cout << color_.kWhite << "\n\n\t\t\t\tBravo " << player_.getColor(winner) << player_.getName_(winner)
-         << color_.kStop << color_.kWhite << " hai vinto!" << color_.kStop;
+    winMessage(winner);
     cinClear();
 }
 
@@ -50,11 +29,12 @@ void game::welcome() {
     cout << color_.kWhite << "\n\t\t\t\t\tBenvenuti in GOP!!\n" << color_.kStop << endl;
     mSleep(2000);
     cout << "Conosci già i vincoli imposti e le caratteristiche del gioco? ";
+
     string check;
     cin >> check;
     if(inputCheck(check) == "negative"){
         vincoli();
-        mSleep(10000);
+        mSleep(9000);
         caratteristica();
         cinClear();
         cout << endl << "\tProcediamo? " ;
@@ -94,19 +74,17 @@ void game::start(){
 }
 
 void game::checkSquare(int n_pl) {
-if(!player_.getStop_(n_pl)){
-    if(map_.getCellEffect(player_.getSquare_(n_pl)) != 0){ //se c'è un effetto cella
-        cout << endl << "Effetto casella! -> ";
-        player_ = deck_.executeCellAction(player_, n_pl,
-                                          map_.getCellEffect(player_.getSquare_(n_pl)));
-        mapWaitEffect();
+    //per non eseguire l'effetto se si è fermi
+    if(!player_.getStop_(n_pl)){
+        if(cellEffect(n_pl)){ //se c'è un effetto cella
+            executeCell(n_pl);
+        }
+
+        if(drawACard(n_pl)){//se c'è pesca carta
+            executeCard(n_pl);
+        }
     }
 
-    if(map_.getDrawACard(player_.getSquare_(n_pl)) != 0){//se c'è pesca carta
-        cout << endl << "Effetto carta! -> ";
-        player_ = deck_.executeCardAction(player_, n_pl);
-        mapWaitEffect();
-    }}
 }
 
 void game::mapWaitEffect(){
@@ -118,4 +96,60 @@ void game::mapWaitEffect(){
 void game::updateMap(){
     Util::clear();
     map_.displayMap(player_);
+}
+
+void game::redoLoopCondition(int &n){
+    if (n > (player_.getNum_player_())) //ricomincia il ciclo 1 - numeri di gioc
+        n = 1;
+}
+
+void game::animationSteps(int& winner, int &step, int player_number){
+
+    int dice = dice_.throwDice(player_.getDice_(player_number));//steps animation
+    for(int j = 1; j <= dice && winner == 0; j++){
+        player_.addSquare_(player_number, 1);
+        if (player_.getSquare_(player_number) == map_.getMapDimensions())
+            winner = player_number;
+        updateMap();
+        mSleep(350);
+        step = j;
+    }
+    if(dice == 0){ //0 step animation
+        step = 0;
+        updateMap();
+    }
+}
+void game::stepsMessage(int player_number, int step) {
+    cout << "\t\t\t\t" << player_.getColor(player_number) << player_.getName_(player_number) << color_.kStop << " è avanzato di " << color_.kWhite
+         << step << color_.kStop << " caselle!" << endl;}
+
+void game::winMessage(int winner) {
+    cout << color_.kWhite << "\n\n\t\t\t\tBravo " << player_.getColor(winner) << player_.getName_(winner)
+         << color_.kStop << color_.kWhite << " hai vinto!" << color_.kStop;}
+
+void game::executeCard(int n_pl) {
+    cout << endl << "Effetto carta! -> ";
+    //aggiorna player
+    player_ = deck_.executeCardAction(player_, n_pl);
+    mapWaitEffect();
+}
+
+void game::executeCell(int n_pl) {
+    cout << endl << "Effetto casella! -> ";
+    //aggiorna player
+    player_ = deck_.executeCellAction(player_, n_pl,
+                                      map_.getCellEffect(player_.getSquare_(n_pl)));
+    mapWaitEffect();
+}
+
+
+bool game::noWinner(int n_pl){
+    return player_.getSquare_(n_pl) < map_.getMapDimensions();
+}
+bool game::cellEffect(int n_pl){
+    return map_.getCellEffect(player_.getSquare_(n_pl)) != 0;
+}
+
+bool game::drawACard(int n_pl){
+    return map_.getDrawACard(player_.getSquare_(n_pl)) != 0;
 }

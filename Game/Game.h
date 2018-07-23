@@ -32,6 +32,16 @@ protected:
     void checkSquare(int);
     void mapWaitEffect();
     void updateMap();
+    void redoLoopCondition(int&);
+    void animationSteps(int&, int&, int);
+    void winMessage(int);
+    void stepsMessage(int, int);
+    void executeCell(int);
+    void executeCard(int);
+    bool noWinner(int);
+    bool cellEffect(int);
+    bool drawACard(int);
+
 };
 
 

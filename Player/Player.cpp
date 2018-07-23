@@ -6,11 +6,15 @@
 
 Player::Player(){}
 Player::Player(int n){
-    Colors c;
     num_Player_ = n;
-    for(int i = 4; i > num_Player_; i--)
-        draw += " "; //stringa spazio per i giocatori non presenti
+    for(int i = 4; i > num_Player_; i--) {
+        draw += " ";
+    } //stringa spazio per i giocatori non presenti
+    setupPlayersColor();
 
+}
+void Player::setupPlayersColor() {
+    Colors c;
     //colori default per i giocatori
     player_[1].color_ = c.kGreen;
     player_[2].color_ = c.kYellow;
@@ -27,7 +31,6 @@ Player::Player(int n){
 
 }
 
-
 int Player::getNum_player_(){
     return num_Player_;
 }
@@ -38,8 +41,6 @@ void Player::addSquare_(int Turn, int Square) {
 void Player::setSquare_(int Turn, int Square) {
     player_[Turn].square_ = Square;
 }
-
-
 
 int Player::getSquare_(int Turn){
     return player_[Turn].square_;

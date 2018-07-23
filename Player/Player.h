@@ -17,34 +17,31 @@ public:
     Player(int Number);
 
     int getNum_player_();
-
     int getSquare_(int Turn);
+    int getDice_(int Turn);
+    int getCard(int Turn);
+    int getTurnsOneDice(int Turn);
+    int getTurnsStopped(int Turn);
+
+    void switchDice_(int Turn);
+    void switchStop_(int Turn);
+    void switchBold(int Turn);
     void addSquare_(int Turn, int Square);
     void setSquare_ (int Turn, int Square);
-    int getDice_(int Turn);
-    void switchDice_(int Turn);
+    void setPlayer_(int Turn, std::string Name);
+    void setCard(int cardNumber, int Turn);
+    void setTurnsOneDice(int turnsStopped, int Turn);
+    void setTurnsStopped(int turnsStopped, int Turn);
 
     bool getStop_(int Turn);
-    void switchStop_(int Turn);
 
-    void setPlayer_(int Turn, std::string Name);
     std::string getName_(int Turn);
     std::string getColor(int Turn);
     std::string getSymbol(int Turn);
-
     std::string drawPlayersForMap(int Square);
+protected:
+    void setupPlayersColor();
 
-    void switchBold(int Turn);
-
-
-    void setCard(int cardNumber, int Turn);
-    int getCard(int Turn);
-
-    void setTurnsOneDice(int turnsStopped, int Turn);
-    int getTurnsOneDice(int Turn);
-    void setTurnsStopped(int turnsStopped, int Turn);
-    int getTurnsStopped(int Turn);
-private:
     struct symbols{
         const std::string normal_= "█";
         const std::string one_dice_ = "▌";
