@@ -44,8 +44,8 @@ protected:
     bool drawACard(int);
 
 private:
-    bool stop[5];
-    bool dice[5];
+    bool local_stop_[5];
+    bool local_dice_[5];
 };
 
 
