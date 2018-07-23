@@ -43,6 +43,9 @@ protected:
     bool cellEffect(int);
     bool drawACard(int);
 
+private:
+    bool stop;
+    bool dice;
 };
 
 
