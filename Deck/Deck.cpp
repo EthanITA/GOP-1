@@ -9,11 +9,10 @@ std::vector<Card> Deck::cards(80);
 Deck::Deck() {
     int i;
     numberOfCards=(int)cards.size();
-
+    int noOfEffects= Effects::numberOfEffects();
 //Creating DECK
     for(i=0;i<numberOfCards;i++){
-//       cards.at(i).setEverything(i,Util::random(1,noOfEffects));
-        cards.at(i).setEverything(i,7);
+       cards.at(i).setEverything(i,Util::random(1,noOfEffects));
     }
 
 //    USED FOR DEBUG
@@ -30,20 +29,26 @@ int Deck::getCard() {
 }
 
 int Deck::getEffectFromCardNumber(int cardNumber) {
+
     return cards.at(static_cast<unsigned long>(cardNumber)).getEffectNumber();
 }
 
 Player Deck::executeCardAction(Player p, int playerNumber) {
     int effectNumber=getEffectFromCardNumber(p.getCard(playerNumber));
-    return  executeAction(p, playerNumber, effectNumber);
+    this->p=p;
+    this->playerNumber=playerNumber;
+    return  executeAction(effectNumber);
 }
 
 Player Deck::executeCellAction(Player p, int playerNumber, int effectNumber) {
-    return executeAction(p,playerNumber,effectNumber);
+    this->p=p;
+    this->playerNumber=playerNumber;
+    return executeAction(effectNumber);
 }
 
-Player Deck::executeAction(Player p, int playerNumber, int effectNumber) { //Private method
+Player Deck::executeAction(int effectNumber) { //Private method
     switch (effectNumber) {
+//  The effects are available in Effects.h
         case 1: { //"Pesca una carta"
             std::cout<<e.getEffectsStringFromNumber(1)<<std::endl;
             p.setCard(getCard(),playerNumber);
@@ -85,13 +90,11 @@ Player Deck::executeAction(Player p, int playerNumber, int effectNumber) { //Pri
         }
 
         case 7: {// "Scambia la posizione con un altro giocatore"
-            int otherPlayerNumber=Util::randomFrom1(p.getNum_player_()), temp;//Da finire per bene
+            int otherPlayerNumber=Util::randomFrom1(p.getNum_player_()), temp, squarePlayer, squareOtherPlayer;//Da finire per bene
             std::cout<<e.getEffectsStringFromNumber(7)<<std::endl;
 
+
             if(p.getNum_player_()!=1){
-                std::cout<<"otherplayer "<<otherPlayerNumber<<std::endl;
-                std::cout<<"NumPlayer "<<p.getNum_player_()<<std::endl;
-                std::cout<<"playerNumber "<<playerNumber<<std::endl;
                 if(p.getNum_player_()==2){
                     switch (playerNumber){
                         case 1:{
@@ -107,15 +110,14 @@ Player Deck::executeAction(Player p, int playerNumber, int effectNumber) { //Pri
                         }
                     }
                 }else{
-//                    while (otherPlayerNumber == playerNumber)
-//                        otherPlayerNumber = Util::randomFrom1(p.getNum_player_());
+                    while (otherPlayerNumber == playerNumber)
+                        otherPlayerNumber = Util::randomFrom1(p.getNum_player_());
                 }
-
-                std::cout<<"otherplayer "<<otherPlayerNumber<<std::endl;
 
                 temp=p.getSquare_(playerNumber);
                 p.setSquare_(playerNumber, p.getSquare_(otherPlayerNumber));//Exchange the 2 players square number
                 p.setSquare_(otherPlayerNumber, temp);
+
 
                 Colors c;
 
@@ -134,19 +136,20 @@ Player Deck::executeAction(Player p, int playerNumber, int effectNumber) { //Pri
         case 8: {// "Fermo un turno"
             std::cout<<e.getEffectsStringFromNumber(8)<<std::endl;
             p.switchStop_(playerNumber);
+            p.setTurnsStopped(1,playerNumber);
             break;
         }
 
-        case 9: {// "Sta fermo per x turni a seconda di quanto esce sul dado"
-            int dice=d.throwDice(1);
-            std::cout<<e.getEffectsStringFromNumber(9)<<std::endl;
-            p.switchStop_(playerNumber);
-            p.setTurnsStopped(dice,playerNumber);
-            std::cout<<p.getName_(playerNumber)<<" starà fermo per "<<dice<<" turni"<<std::endl;
-            break;
-        }
+//        case 9: {// "Sta fermo per x turni a seconda di quanto esce sul dado"
+//            int dice=d.throwDice(1);
+//            std::cout<<e.getEffectsStringFromNumber(9)<<std::endl;
+//            p.switchStop_(playerNumber);
+//            p.setTurnsStopped(dice,playerNumber);
+//            std::cout<<p.getName_(playerNumber)<<" starà fermo per "<<dice<<" turni"<<std::endl;
+//            break;
+//        }
 
-        case 10:{// "Gioco con 1 dado per X turni a seconda di quanto esce sul dado"
+        case 9:{// "Gioco con 1 dado per X turni a seconda di quanto esce sul dado"
             std::cout<<e.getEffectsStringFromNumber(10)<<std::endl;
             p.setTurnsOneDice(d.throwDice(1), playerNumber);
             p.switchDice_(playerNumber);

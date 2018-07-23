@@ -4,7 +4,7 @@
 
 #ifndef GOP_CARD_H
 #define GOP_CARD_H
-#include "../Utils/Effects.h"
+#include "Effects.h"
 
 class Card{
 private:

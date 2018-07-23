@@ -12,7 +12,7 @@
 #include <array>
 #include <cmath>
 #include "../Player/Player.h"
-#include "../Utils/Effects.h"
+#include "../Deck/Effects.h"
 #include "../Utils/Util.h"
 #include "../Utils/Colors.h"
 

@@ -8,7 +8,7 @@
 
 #include "Card.h"
 #include "../Utils/Util.h"
-#include "../Utils/Effects.h"
+#include "Effects.h"
 #include "../Player/Player.h"
 #include "../Dice/Dice.h"
 #include <vector>
@@ -22,7 +22,7 @@ private:
     Player p;
     dice d;
     static std::vector<Card> cards;
-    Player executeAction(Player p, int playerNumber, int effectNumber);
+    Player executeAction(int effectNumber);
 public:
     Deck();
     int getCard();

@@ -12,7 +12,7 @@
 
 class Effects {
 private:
-     std::string effects[11] ={
+     std::string effects[10] ={
             "NONE",//0
             "Pesca una carta",//1
             "Fai un altro lancio",//2
@@ -22,8 +22,8 @@ private:
             "Indietro a seconda di quanto esce sul dado",//6
             "Scambia la posizione con un altro giocatore",//7
             "Fermo un turno",//8
-            "Sta fermo per x turni a seconda di quanto esce sul dado",//9
-            "Gioco con 1 dado per X turni a seconda di quanto esce sul dado"//10
+        //    "Sta fermo per x turni a seconda di quanto esce sul dado",//9
+            "Gioco con 1 dado per X turni a seconda di quanto esce sul dado"//9
      };
 
 
