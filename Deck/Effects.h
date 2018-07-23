@@ -12,6 +12,7 @@
 
 class Effects {
 private:
+    //Every effect, for cards and cells
      std::string effects[10] ={
             "NONE",//0
             "Pesca una carta",//1
