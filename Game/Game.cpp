@@ -135,6 +135,10 @@ void game::executeCard(int n_pl) {
     //aggiorna player
     player_ = deck_.executeCardAction(player_, n_pl);
     mapWaitEffect();
+    if(player_.getDice_(n_pl) == 1)
+        dice[n_pl] = 0;
+    else if(player_.getStop_(n_pl))
+        stop[n_pl] = 0;
 }
 
 void game::executeCell(int n_pl) {
@@ -143,13 +147,22 @@ void game::executeCell(int n_pl) {
     player_ = deck_.executeCellAction(player_, n_pl,
                                       map_.getCellEffect(player_.getSquare_(n_pl)));
     mapWaitEffect();
+    if(player_.getDice_(n_pl) == 1)
+        dice[n_pl] = 0;
+    else if(player_.getStop_(n_pl))
+        stop[n_pl] = 0;
 }
 
 void game::checkAndRemoveDebuff(int player_number){
-    if(player_.getStop_(player_number))
-        player_.switchStop_(player_number);
-    if(player_.getDice_(player_number))
+    if(dice == 0)
+        dice[player_number] = 1;
+    else if(player_.getDice_(player_number) == 1)
         player_.switchDice_(player_number);
+    if(stop == 0)
+        stop[player_number] = 1;
+    else if(player_.getStop_(player_number)) {
+        player_.switchStop_(player_number);
+    }
 }
 
 bool game::noWinner(int n_pl, int winner){
