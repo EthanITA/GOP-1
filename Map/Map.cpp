@@ -2,16 +2,7 @@
 // Created by vecr on 26/05/18.
 //
 
-#include <iostream>
-#include <array>
-#include <cmath>
 #include "Map.h"
-#include "../Utils/Effects.h"
-#include "../Utils/Util.h"
-#include "../Utils/Colors.h"
-#include <iomanip>
-
-
 
 Map::Map() {
     int j=0,cellNumber=0, nEffects=Effects::numberOfEffects(), distanceBtwnEffects=8, distanceBtwnDrawCard=6; //TODO Decidere ogni quante celle avere un effetto

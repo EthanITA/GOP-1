@@ -7,7 +7,15 @@
 
 
 #include <vector>
+#include <iomanip>
+#include <iostream>
+#include <array>
+#include <cmath>
 #include "../Player/Player.h"
+#include "../Utils/Effects.h"
+#include "../Utils/Util.h"
+#include "../Utils/Colors.h"
+
 
 class Map {
 private:

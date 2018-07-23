@@ -124,3 +124,10 @@ int Player::getTurnsOneDice(int Turn) {
     return player_[Turn].turns_one_dice_;
 }
 
+void Player::setTurnsStopped(int turnsStopped, int Turn) {
+    player_[Turn].turnsStopped = turnsStopped;
+}
+
+int Player::getTurnsStopped(int Turn) {
+    return player_[Turn].turnsStopped;
+}

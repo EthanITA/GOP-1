@@ -4,6 +4,8 @@
 
 #ifndef GOP_CARD_H
 #define GOP_CARD_H
+#include "../Utils/Effects.h"
+
 class Card{
 private:
     int number,effectNumber;

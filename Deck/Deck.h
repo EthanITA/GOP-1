@@ -12,6 +12,8 @@
 #include "../Player/Player.h"
 #include "../Dice/Dice.h"
 #include <vector>
+#include <iostream>
+
 
 class Deck {
 private:
@@ -20,8 +22,7 @@ private:
     Player p;
     dice d;
     static std::vector<Card> cards;
-    int noOfEffects;
-    Player executeAction(Player p,int effectNumber);
+    Player executeAction(Player p, int playerNumber, int effectNumber);
 public:
     Deck();
     int getCard();

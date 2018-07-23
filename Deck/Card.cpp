@@ -3,7 +3,6 @@
 //
 
 #include "Card.h"
-#include "../Utils/Effects.h"
 
 int Card::getNumber() { //return card number
     return number;
