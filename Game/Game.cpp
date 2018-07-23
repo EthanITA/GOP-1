@@ -174,5 +174,10 @@ bool game::cellEffect(int n_pl){
 }
 
 bool game::drawACard(int n_pl){
+    int card=map_.getDrawACard(player_.getSquare_(n_pl));
+    if(card!=0){
+        player_.setCard(card,n_pl);
+    }
     return map_.getDrawACard(player_.getSquare_(n_pl)) != 0;
+
 }

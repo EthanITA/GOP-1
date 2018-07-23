@@ -8,6 +8,7 @@ Map::Map() {
     int j=0,cellNumber=0, nEffects=Effects::numberOfEffects(), distanceBtwnEffects=8, distanceBtwnDrawCard=6; //TODO Decidere ogni quante celle avere un effetto
     int min=40,max=80;
     dimensions=Util::random(min,max);
+    dimensions=35;
 
     for (auto &i : mapMatrix) { //Creating and setting where to draw a card or where the cell has a effect
         while(j<10&&cellNumber<=dimensions){
