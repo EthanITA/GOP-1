@@ -149,9 +149,9 @@ Player Deck::executeAction(int effectNumber) { //Private method
 //            break;
 //        }
 
-        case 9:{// "Gioco con 1 dado per X turni a seconda di quanto esce sul dado"
+        case 9:{// "Gioco con un dado per un turno"
             std::cout<<e.getEffectsStringFromNumber(10)<<std::endl;
-            p.setTurnsOneDice(d.throwDice(1), playerNumber);
+            p.setTurnsOneDice(1, playerNumber);
             p.switchDice_(playerNumber);
         }
 

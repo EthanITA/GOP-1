@@ -23,7 +23,7 @@ private:
             "Scambia la posizione con un altro giocatore",//7
             "Fermo un turno",//8
         //    "Sta fermo per x turni a seconda di quanto esce sul dado",//9
-            "Gioco con 1 dado per X turni a seconda di quanto esce sul dado"//9
+            "Gioco con un dado per un turno"//9
      };
 
 
