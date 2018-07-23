@@ -148,7 +148,7 @@ void game::executeCell(int n_pl) {
 void game::checkAndRemoveDebuff(int player_number){
     if(player_.getStop_(player_number))
         player_.switchStop_(player_number);
-    if(player_.getDice_(player_number))
+    if(player_.getDice_(player_number) == 1)
         player_.switchDice_(player_number);
 }
 
