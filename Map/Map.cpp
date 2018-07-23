@@ -9,7 +9,7 @@ Map::Map() {
     int min=40,max=80;
     dimensions=Util::random(min,max);
 
-    for (auto &i : mapMatrix) {
+    for (auto &i : mapMatrix) { //Creating and setting where to draw a card or where the cell has a effect
         while(j<10&&cellNumber<=dimensions){
             i[j]=cellNumber;
 
@@ -34,10 +34,10 @@ Map::Map() {
     }
 }
 
-void Map::displayMap(Player p) {
+void Map::displayMap(Player p) {//Prints the map with all the players and the effects or cards simbols under the cell number
     int cellNumber=0,j=0,remainingCellsToFill=0;
     Colors c;
-
+    //Used to display the cells and the players in them
     std::cout<<constructCellString(0,110)<<std::endl;
     for (auto &i : mapMatrix) {
         while(j<10&&cellNumber<=dimensions){
@@ -123,7 +123,7 @@ void Map::displayMap(Player p) {
 
 
 
-std::string Map::constructCellString(int resource, int cellNumber){
+std::string Map::constructCellString(int resource, int cellNumber){ //Used to build the different strings needed
     std::string complete, stringResources[]={
             "╔═════════╤═════════╤═════════╤═════════╤═════════╤═════════╤═════════╤═════════╤═════════╤═════════╗",//0
 

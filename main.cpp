@@ -13,9 +13,6 @@
 
 
 int main() {
-
-//    cout<<"Number of effects "<<Effects::numberOfEffects()<<std::endl;
     game g;
-
     return 0;
 }

@@ -28,7 +28,6 @@ int Deck::getCard() {
 }
 
 int Deck::getEffectFromCardNumber(int cardNumber) {
-
     return cards.at(static_cast<unsigned long>(cardNumber)).getEffectNumber();
 }
 
@@ -45,7 +44,7 @@ Player Deck::executeCellAction(Player p, int playerNumber, int effectNumber) {
     return executeAction(effectNumber);
 }
 
-Player Deck::executeAction(int effectNumber) { //Private method
+Player Deck::executeAction(int effectNumber) { //Private method used to execute the single action by the two public methods
     switch (effectNumber) {
 //  The effects are available in Effects.h
         case 1: { //"Pesca una carta"
