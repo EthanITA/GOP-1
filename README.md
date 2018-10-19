@@ -3,7 +3,7 @@
 2018 UniBo Computer Science - Programming 
 
 ## About
-
+a
 This game is a simple implementation of the Game of the Goose for the programming class, the requirments can be found [here](Relazione/Resources/progetto-GOP.pdf) (italian). 
 
 ## How to
