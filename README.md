@@ -5,7 +5,7 @@
 ## About
 
 This game is a simple implementation of the Game of the Goose for the programming class, the requirments can be found [here](Relazione/Resources/progetto-GOP.pdf) (italian). 
-
+s
 ## How to
 **LINUX**
 
