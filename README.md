@@ -1,4 +1,4 @@
-# Game of the Goose (Gioco dell'Oca Pazza)
+# Game of the Goose GOP(Gioco dell'Oca Pazza)
 
 2018 UniBo Computer Science - Programming 
 
