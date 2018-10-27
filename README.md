@@ -1,6 +1,6 @@
 # Game of the Goose (Gioco dell'Oca Pazza)
 
-2018 UniBo Computer Science - Programming 
+2018 UniBo Computer Science - Programming/Coding
 
 ## About
 
