@@ -8,6 +8,7 @@ This game is a simple implementation of the Game of the Goose for the programmin
 
 ## How to
 **LINUX**
+**WINDOWS**
 
 Requirements:
 
