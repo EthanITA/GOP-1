@@ -24,6 +24,6 @@ Compile and run
     make
     ./GOP
 
-by  
+by us
 [@vecr25](https://github.com/vecr25)
 [@EthanITA](https://github.com/EthanITA)
